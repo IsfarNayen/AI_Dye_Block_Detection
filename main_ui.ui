@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #e9e6f2;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background: transparent;</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="mainFrame">
+      <property name="styleSheet">
+       <string notr="true">background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #ece9f7,
+        stop:1 #ddd8ee
+    );
+border-radius: 24px;</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="HeaderFrame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>881</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8f97c8,
+        stop:1 #b8bbe3
+    );
+border-top-left-radius: 22px;
+border-top-right-radius: 22px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="softwareNameLabel">
+        <property name="geometry">
+         <rect>
+          <x>66</x>
+          <y>3</y>
+          <width>201</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;</string>
+        </property>
+        <property name="text">
+         <string>Teardown AI Software</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="logoLabel">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>0</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="closeButton">
+        <property name="geometry">
+         <rect>
+          <x>824</x>
+          <y>0</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#minimizeButton,
+QPushButton#closeButton {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+QPushButton#minimizeButton:hover,
+QPushButton#closeButton:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+QPushButton#minimizeButton:pressed,
+QPushButton#closeButton:pressed {
+    background-color: rgba(255, 255, 255, 0.28);
+}</string>
+        </property>
+        <property name="text">
+         <string>X</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="minimizeButton">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>0</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#minimizeButton,
+QPushButton#pushButton {
+    background-color: rgba(255, 255, 255, 0.10);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+QPushButton#minimizeButton:hover,
+QPushButton#pushButton:hover {
+    background-color: rgba(255, 255, 255, 0.20);
+}
+
+QPushButton#minimizeButton:pressed,
+QPushButton#pushButton:pressed {
+    background-color: rgba(255, 255, 255, 0.28);
+}</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="bodyFrame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>40</y>
+         <width>881</width>
+         <height>421</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">    background-color: rgba(255, 255, 255, 0.18);
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="mainBoxcontainer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>861</width>
+          <height>371</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 rgba(255,255,255,0.34),
+        stop:1 rgba(255,255,255,0.20)
+    );
+    border: 1px dashed #d3cede;
+    border-radius: 22px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="dragAnddropicon">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>150</y>
+           <width>681</width>
+           <height>71</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">    background: transparent;
+    color: #8f93b7;
+    font-size: 54px;
+    font-weight: 400;
+    border: none;</string>
+         </property>
+         <property name="text">
+          <string>Tap or drag IC image here</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="uploadImagebutton">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>240</y>
+           <width>181</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#uploadImagebutton {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8f9ad8,
+        stop:1 #b4b8e9
+    );
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 22px;
+}
+
+QPushButton#uploadImagebutton:hover {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8692d2,
+        stop:1 #aeb3e4
+    );
+}
+
+QPushButton#uploadImagebutton:pressed {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #7986c8,
+        stop:1 #a0a8dc
+    );
+}</string>
+         </property>
+         <property name="text">
+          <string>Upload an image</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="uploadIconlabel">
+         <property name="geometry">
+          <rect>
+           <x>360</x>
+           <y>70</y>
+           <width>121</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">    background: transparent;
+    color: #74758a;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>861</width>
+          <height>401</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(255, 255, 255, 0.15);
+border-top: 0px solid rgba(210,205,225,0.8);
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>370</y>
+           <width>811</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">    background: transparent;
+    color: #7c7d92;
+    font-size: 13px;
+    font-weight: 400;
+    border: none;
+    padding-left: 12px;
+    padding-right: 12px;</string>
+         </property>
+         <property name="text">
+          <string>Upload an image of an IC and the software will segment different blocks from the teardown IC for analysis</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+       <zorder>frame</zorder>
+       <zorder>mainBoxcontainer</zorder>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
