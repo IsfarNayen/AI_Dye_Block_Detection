@@ -83,26 +83,6 @@ border-bottom-right-radius: 0px;</string>
          <string>Teardown AI Software</string>
         </property>
        </widget>
-       <widget class="QLabel" name="logoLabel">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>0</y>
-          <width>31</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">    background: transparent;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
        <widget class="QPushButton" name="closeButton">
         <property name="geometry">
          <rect>
@@ -169,6 +149,26 @@ QPushButton#pushButton:pressed {
          <string>-</string>
         </property>
        </widget>
+       <widget class="QPushButton" name="logoPushbutton">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>0</y>
+          <width>41</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">    background: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="bodyFrame">
        <property name="geometry">
@@ -220,7 +220,7 @@ QPushButton#pushButton:pressed {
          <property name="geometry">
           <rect>
            <x>90</x>
-           <y>150</y>
+           <y>160</y>
            <width>681</width>
            <height>71</height>
           </rect>
@@ -233,70 +233,26 @@ QPushButton#pushButton:pressed {
     border: none;</string>
          </property>
          <property name="text">
-          <string>Tap or drag IC image here</string>
+          <string>Drag &amp; Drop IC Image Here</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
-        <widget class="QPushButton" name="uploadImagebutton">
+        <widget class="QPushButton" name="uploadIconbutton">
          <property name="geometry">
           <rect>
-           <x>320</x>
-           <y>240</y>
-           <width>181</width>
-           <height>41</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton#uploadImagebutton {
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:0,
-        stop:0 #8f9ad8,
-        stop:1 #b4b8e9
-    );
-    color: white;
-    border: none;
-    border-radius: 18px;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 10px 22px;
-}
-
-QPushButton#uploadImagebutton:hover {
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:0,
-        stop:0 #8692d2,
-        stop:1 #aeb3e4
-    );
-}
-
-QPushButton#uploadImagebutton:pressed {
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:0,
-        stop:0 #7986c8,
-        stop:1 #a0a8dc
-    );
-}</string>
-         </property>
-         <property name="text">
-          <string>Upload an image</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="uploadIconlabel">
-         <property name="geometry">
-          <rect>
-           <x>360</x>
+           <x>350</x>
            <y>70</y>
-           <width>121</width>
-           <height>61</height>
+           <width>141</width>
+           <height>81</height>
           </rect>
          </property>
          <property name="styleSheet">
           <string notr="true">    background: transparent;
-    color: #74758a;
-    font-size: 16px;
-    font-weight: 400;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
     border: none;</string>
          </property>
          <property name="text">
