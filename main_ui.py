@@ -127,7 +127,7 @@ class Ui_MainWindow(object):
         self.mainBoxcontainer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mainBoxcontainer.setObjectName("mainBoxcontainer")
         self.dragAnddropicon = QtWidgets.QLabel(self.mainBoxcontainer)
-        self.dragAnddropicon.setGeometry(QtCore.QRect(90, 160, 681, 71))
+        self.dragAnddropicon.setGeometry(QtCore.QRect(90, 150, 681, 71))
         self.dragAnddropicon.setStyleSheet("    background: transparent;\n"
 "    color: #8f93b7;\n"
 "    font-size: 54px;\n"
@@ -135,6 +135,38 @@ class Ui_MainWindow(object):
 "    border: none;")
         self.dragAnddropicon.setAlignment(QtCore.Qt.AlignCenter)
         self.dragAnddropicon.setObjectName("dragAnddropicon")
+        self.uploadImagebutton = QtWidgets.QPushButton(self.mainBoxcontainer)
+        self.uploadImagebutton.setGeometry(QtCore.QRect(320, 240, 181, 41))
+        self.uploadImagebutton.setStyleSheet("QPushButton#uploadImagebutton {\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #8f9ad8,\n"
+"        stop:1 #b4b8e9\n"
+"    );\n"
+"    color: white;\n"
+"    border: none;\n"
+"    border-radius: 18px;\n"
+"    font-size: 15px;\n"
+"    font-weight: 500;\n"
+"    padding: 10px 22px;\n"
+"}\n"
+"\n"
+"QPushButton#uploadImagebutton:hover {\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #8692d2,\n"
+"        stop:1 #aeb3e4\n"
+"    );\n"
+"}\n"
+"\n"
+"QPushButton#uploadImagebutton:pressed {\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #7986c8,\n"
+"        stop:1 #a0a8dc\n"
+"    );\n"
+"}")
+        self.uploadImagebutton.setObjectName("uploadImagebutton")
         self.uploadIconbutton = QtWidgets.QPushButton(self.mainBoxcontainer)
         self.uploadIconbutton.setGeometry(QtCore.QRect(350, 70, 141, 81))
         self.uploadIconbutton.setStyleSheet("    background: transparent;\n"
@@ -144,6 +176,9 @@ class Ui_MainWindow(object):
 "    border: none;")
         self.uploadIconbutton.setText("")
         self.uploadIconbutton.setObjectName("uploadIconbutton")
+        self.dragAnddropicon.raise_()
+        self.uploadIconbutton.raise_()
+        self.uploadImagebutton.raise_()
         self.frame = QtWidgets.QFrame(self.bodyFrame)
         self.frame.setGeometry(QtCore.QRect(10, 10, 861, 401))
         self.frame.setStyleSheet("background-color: rgba(255, 255, 255, 0.15);\n"
@@ -181,6 +216,7 @@ class Ui_MainWindow(object):
         self.closeButton.setText(_translate("MainWindow", "X"))
         self.minimizeButton.setText(_translate("MainWindow", "-"))
         self.dragAnddropicon.setText(_translate("MainWindow", "Drag & Drop IC Image Here"))
+        self.uploadImagebutton.setText(_translate("MainWindow", "Upload an image"))
         self.label_3.setText(_translate("MainWindow", "Upload an image of an IC and the software will segment different blocks from the teardown IC for analysis"))
 
 

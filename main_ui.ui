@@ -220,7 +220,7 @@ QPushButton#pushButton:pressed {
          <property name="geometry">
           <rect>
            <x>90</x>
-           <y>160</y>
+           <y>150</y>
            <width>681</width>
            <height>71</height>
           </rect>
@@ -237,6 +237,50 @@ QPushButton#pushButton:pressed {
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="uploadImagebutton">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>240</y>
+           <width>181</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#uploadImagebutton {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8f9ad8,
+        stop:1 #b4b8e9
+    );
+    color: white;
+    border: none;
+    border-radius: 18px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 22px;
+}
+
+QPushButton#uploadImagebutton:hover {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #8692d2,
+        stop:1 #aeb3e4
+    );
+}
+
+QPushButton#uploadImagebutton:pressed {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #7986c8,
+        stop:1 #a0a8dc
+    );
+}</string>
+         </property>
+         <property name="text">
+          <string>Upload an image</string>
          </property>
         </widget>
         <widget class="QPushButton" name="uploadIconbutton">
@@ -259,6 +303,9 @@ QPushButton#pushButton:pressed {
           <string/>
          </property>
         </widget>
+        <zorder>dragAnddropicon</zorder>
+        <zorder>uploadIconbutton</zorder>
+        <zorder>uploadImagebutton</zorder>
        </widget>
        <widget class="QFrame" name="frame">
         <property name="geometry">
