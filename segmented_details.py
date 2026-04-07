@@ -69,7 +69,7 @@ class Ui_MainWindow(object):
         self.Image_showing_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Image_showing_frame.setObjectName("Image_showing_frame")
         self.originalImageframe = QtWidgets.QFrame(self.Image_showing_frame)
-        self.originalImageframe.setGeometry(QtCore.QRect(20, 10, 281, 231))
+        self.originalImageframe.setGeometry(QtCore.QRect(20, 10, 291, 241))
         self.originalImageframe.setStyleSheet("QFrame#originalImageframe, QFrame#segmentedImageframe {\n"
 "    background: rgba(124, 120, 154, 0.22);\n"
 "    border: 1px solid rgba(255,255,255,0.55);\n"
@@ -87,7 +87,7 @@ class Ui_MainWindow(object):
         self.originalImageframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.originalImageframe.setObjectName("originalImageframe")
         self.segmentedImageframe = QtWidgets.QFrame(self.Image_showing_frame)
-        self.segmentedImageframe.setGeometry(QtCore.QRect(330, 10, 281, 231))
+        self.segmentedImageframe.setGeometry(QtCore.QRect(320, 10, 291, 241))
         self.segmentedImageframe.setStyleSheet("QFrame#originalImageframe, QFrame#segmentedImageframe {\n"
 "    background: rgba(124, 120, 154, 0.22);\n"
 "    border: 1px solid rgba(255,255,255,0.55);\n"
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.segmentedImageframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.segmentedImageframe.setObjectName("segmentedImageframe")
         self.originalImagelabel = QtWidgets.QLabel(self.Image_showing_frame)
-        self.originalImagelabel.setGeometry(QtCore.QRect(50, 230, 211, 41))
+        self.originalImagelabel.setGeometry(QtCore.QRect(50, 250, 211, 21))
         self.originalImagelabel.setStyleSheet("QLabel {\n"
 "    color: #5d5e70;\n"
 "    background: transparent;\n"
@@ -115,7 +115,7 @@ class Ui_MainWindow(object):
         self.originalImagelabel.setAlignment(QtCore.Qt.AlignCenter)
         self.originalImagelabel.setObjectName("originalImagelabel")
         self.segmentedImagelabel = QtWidgets.QLabel(self.Image_showing_frame)
-        self.segmentedImagelabel.setGeometry(QtCore.QRect(360, 230, 211, 41))
+        self.segmentedImagelabel.setGeometry(QtCore.QRect(360, 250, 211, 21))
         self.segmentedImagelabel.setStyleSheet("QLabel {\n"
 "    color: #5d5e70;\n"
 "    background: transparent;\n"
@@ -134,6 +134,44 @@ class Ui_MainWindow(object):
         self.showDetailsframe.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.showDetailsframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.showDetailsframe.setObjectName("showDetailsframe")
+        self.scrollArea = QtWidgets.QScrollArea(self.showDetailsframe)
+        self.scrollArea.setGeometry(QtCore.QRect(0, 0, 591, 271))
+        self.scrollArea.setStyleSheet("QScrollArea {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QScrollArea > QWidget > QWidget {\n"
+"    background: rgba(255, 255, 255, 0.20);\n"
+"    border: none;\n"
+"    border-radius: 12px;\n"
+"}\n"
+"\n"
+"QScrollBar:vertical {\n"
+"    background: transparent;\n"
+"    width: 10px;\n"
+"    margin: 2px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: rgba(142, 147, 213, 0.65);\n"
+"    border-radius: 5px;\n"
+"    min-height: 24px;\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical,\n"
+"QScrollBar::sub-line:vertical,\n"
+"QScrollBar::add-page:vertical,\n"
+"QScrollBar::sub-page:vertical {\n"
+"    background: none;\n"
+"    border: none;\n"
+"}")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 591, 271))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.closePushbutton = QtWidgets.QPushButton(self.mainFrame)
         self.closePushbutton.setGeometry(QtCore.QRect(10, 610, 591, 41))
         self.closePushbutton.setStyleSheet("QPushButton#closePushbutton {\n"

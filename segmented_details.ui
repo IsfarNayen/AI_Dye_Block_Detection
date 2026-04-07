@@ -116,8 +116,8 @@
          <rect>
           <x>20</x>
           <y>10</y>
-          <width>281</width>
-          <height>231</height>
+          <width>291</width>
+          <height>241</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -145,10 +145,10 @@ QLabel#originalImagelabel, QLabel#segmentedImagelabel {
        <widget class="QFrame" name="segmentedImageframe">
         <property name="geometry">
          <rect>
-          <x>330</x>
+          <x>320</x>
           <y>10</y>
-          <width>281</width>
-          <height>231</height>
+          <width>291</width>
+          <height>241</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -177,9 +177,9 @@ QLabel#originalImagelabel, QLabel#segmentedImagelabel {
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>230</y>
+          <y>250</y>
           <width>211</width>
-          <height>41</height>
+          <height>21</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -201,9 +201,9 @@ QLabel#originalImagelabel, QLabel#segmentedImagelabel {
         <property name="geometry">
          <rect>
           <x>360</x>
-          <y>230</y>
+          <y>250</y>
           <width>211</width>
-          <height>41</height>
+          <height>21</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -244,6 +244,61 @@ QLabel#originalImagelabel, QLabel#segmentedImagelabel {
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>591</width>
+          <height>271</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QScrollArea {
+    background: transparent;
+    border: none;
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background: rgba(255, 255, 255, 0.20);
+    border: none;
+    border-radius: 12px;
+}
+
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(142, 147, 213, 0.65);
+    border-radius: 5px;
+    min-height: 24px;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+    border: none;
+}</string>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>591</width>
+           <height>271</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
       </widget>
       <widget class="QPushButton" name="closePushbutton">
        <property name="geometry">
