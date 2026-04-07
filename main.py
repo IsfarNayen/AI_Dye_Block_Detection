@@ -6,9 +6,12 @@ from PyQt5.QtGui import QPixmap, QIcon
 
 from main_ui import Ui_MainWindow
 from drag_and_drop_event import DragDropFrame
+from backend import SegmentationBackend
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
+backend = SegmentationBackend()
+backend.load_models()
 
 class MainApp(QtWidgets.QMainWindow):
     def __init__(self):
@@ -85,10 +88,14 @@ class MainApp(QtWidgets.QMainWindow):
             "Images (*.png *.jpg *.jpeg *.bmp)"
         )
         if file_path:
-            print("Selected image:", file_path)
+            #  print("Selected image:", file_path)
+            temp = backend.predict_image_from_gui(file_path)
+            print(temp)
 
     def handle_dropped_image(self, file_path):
-        print("Dropped image:", file_path)
+        # print("Dropped image:", file_path)
+        temp = backend.predict_image_from_gui(file_path)
+        print(temp)
 
     def icon_set(self, widget, icon_path, w, h):
         if isinstance(widget, QtWidgets.QPushButton):
