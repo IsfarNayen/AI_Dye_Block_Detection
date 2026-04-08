@@ -1,5 +1,6 @@
 import sys
-import os
+import os, shutil
+
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QPixmap, QIcon
@@ -7,6 +8,7 @@ from PyQt5.QtGui import QPixmap, QIcon
 from main_ui import Ui_MainWindow
 from drag_and_drop_event import DragDropFrame
 from backend import SegmentationBackend
+from segmented_details_main import MainApp as SegmentedDetailsWindow
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -80,6 +82,8 @@ class MainApp(QtWidgets.QMainWindow):
         self.ui.mainBoxcontainer = new_frame
         self.ui.mainBoxcontainer.fileDropped.connect(self.handle_dropped_image)
 
+
+
     def open_file_dialog(self):
         file_path, _ = QtWidgets.QFileDialog.getOpenFileName(
             self,
@@ -88,14 +92,49 @@ class MainApp(QtWidgets.QMainWindow):
             "Images (*.png *.jpg *.jpeg *.bmp)"
         )
         if file_path:
-            #  print("Selected image:", file_path)
-            temp = backend.predict_image_from_gui(file_path)
-            print(temp)
+            self.process_and_show_result(file_path)
+
 
     def handle_dropped_image(self, file_path):
-        # print("Dropped image:", file_path)
-        temp = backend.predict_image_from_gui(file_path)
-        print(temp)
+        self.process_and_show_result(file_path)
+
+
+
+    def process_and_show_result(self, file_path):
+        try:
+            result = backend.predict_image_from_gui(file_path)
+
+            shutil.copy(file_path, ".\database")
+            
+            area_df = result["area_df"]
+            area_summary = result["area_summary"]
+            save_paths = result["save_paths"]
+            
+            # Keep only what you want to show in the detail area
+            details_df = area_df[["class_name", "ratio_percent", "class_color_hex", "class_color_rgb"]].copy()
+
+            overlay_path = save_paths.get("overlay_path", "")
+            overlay_path = os.path.join(base_dir, overlay_path)
+            original_path = file_path
+
+            self.result_window = SegmentedDetailsWindow()
+            self.result_window.set_result_data(
+                original_image_path=original_path,
+                segmented_image_path=overlay_path,
+                details_df=details_df,
+                # area_summary=area_summary
+            )
+            self.result_window.show()
+
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(
+                self,
+                "Processing Error",
+                f"Failed to process image.\n\n{str(e)}"
+            )
+
+    
+
 
     def icon_set(self, widget, icon_path, w, h):
         if isinstance(widget, QtWidgets.QPushButton):
@@ -113,8 +152,26 @@ class MainApp(QtWidgets.QMainWindow):
             )
             widget.setPixmap(pixmap)
 
+
     def close_win(self):
+        # Try removing outputs folder safely
+        try:
+            if os.path.exists("./outputs"):
+                shutil.rmtree("./outputs")
+        except Exception as e:
+            pass
+
+        # Close result window if it exists
+        try:
+            if hasattr(self, "result_window") and self.result_window is not None:
+                self.result_window.close()
+        except Exception as e:
+            pass
+
+        # Finally close main window
         self.close()
+        
+
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
