@@ -326,12 +326,15 @@ def calculate_class_areas_from_pred_mask(
         pixel_count = int(np.sum(pred_mask == class_idx))
         ratio_percent = (pixel_count / total_pixels) * 100 if total_pixels > 0 else 0.0
 
+        color_rgb = IDX_TO_COLOR[class_idx]
         row = {
             "class_idx": class_idx,
             "raw_id": IDX_TO_RAW[class_idx],
             "class_name": IDX_TO_NAME[class_idx],
             "pixel_count": pixel_count,
-            "ratio_percent": ratio_percent
+            "ratio_percent": ratio_percent,
+            "class_color_rgb": str(color_rgb),   # e.g. "(250, 50, 83)"
+            "class_color_hex": "#{:02X}{:02X}{:02X}".format(*color_rgb)  # e.g. "#FA3253"
         }
 
         if has_real_size:
@@ -494,11 +497,11 @@ class ChipSegmentationPipeline:
             save_paths = {**pred_save, **area_save}
 
         return {
-            "image_name": image_name,
-            "gray_image": gray_img,
-            "pred_mask": pred_mask,
-            "overlay_image": overlay_img,
-            "prob_map": prob_map,
+            # "image_name": image_name,
+            # "gray_image": gray_img,
+            # "pred_mask": pred_mask,
+            # "overlay_image": overlay_img,
+            # "prob_map": prob_map,
             "area_df": area_df,
             "area_summary": area_summary,
             "save_paths": save_paths

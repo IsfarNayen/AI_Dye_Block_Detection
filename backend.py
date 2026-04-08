@@ -118,17 +118,17 @@ class SegmentationBackend:
     # ---------------------------------------------------------
     # OPTIONAL HELPERS FOR GUI DISPLAY
     # ---------------------------------------------------------
-    def get_overlay_for_qt(self, overlay_image_rgb):
-        """
-        Convert RGB overlay image to BGR if needed for OpenCV/PyQt handling.
-        """
-        return cv2.cvtColor(overlay_image_rgb, cv2.COLOR_RGB2BGR)
+    # def get_overlay_for_qt(self, overlay_image_rgb):
+    #     """
+    #     Convert RGB overlay image to BGR if needed for OpenCV/PyQt handling.
+    #     """
+    #     return cv2.cvtColor(overlay_image_rgb, cv2.COLOR_RGB2BGR)
 
-    def get_pred_mask_rgb(self, pred_mask):
-        """
-        Convert predicted class mask to RGB visualization.
-        """
-        return class_mask_to_rgb(pred_mask)
+    # def get_pred_mask_rgb(self, pred_mask):
+    #     """
+    #     Convert predicted class mask to RGB visualization.
+    #     """
+    #     return class_mask_to_rgb(pred_mask)
 
     def get_output_paths(self, result_dict):
         """
