@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(627, 681)
+        MainWindow.resize(909, 782)
         MainWindow.setStyleSheet("QMainWindow {\n"
 "    background-color: #ebe8f3;\n"
 "}\n"
@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.mainFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mainFrame.setObjectName("mainFrame")
         self.HeaderFrame = QtWidgets.QFrame(self.mainFrame)
-        self.HeaderFrame.setGeometry(QtCore.QRect(30, 0, 561, 31))
+        self.HeaderFrame.setGeometry(QtCore.QRect(20, 10, 561, 31))
         self.HeaderFrame.setStyleSheet("QFrame#HeaderFrame {\n"
 "    background: transparent;\n"
 "    border: none;\n"
@@ -50,6 +50,12 @@ class Ui_MainWindow(object):
         self.HeaderFrame.setObjectName("HeaderFrame")
         self.softwareNameLabel = QtWidgets.QLabel(self.HeaderFrame)
         self.softwareNameLabel.setGeometry(QtCore.QRect(0, 0, 221, 31))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.softwareNameLabel.setFont(font)
         self.softwareNameLabel.setStyleSheet("QLabel#softwareNameLabel {\n"
 "    background: transparent;\n"
 "    color: #5f6172;\n"
@@ -60,7 +66,7 @@ class Ui_MainWindow(object):
 "}")
         self.softwareNameLabel.setObjectName("softwareNameLabel")
         self.Image_showing_frame = QtWidgets.QFrame(self.mainFrame)
-        self.Image_showing_frame.setGeometry(QtCore.QRect(-10, 40, 621, 281))
+        self.Image_showing_frame.setGeometry(QtCore.QRect(-10, 40, 901, 351))
         self.Image_showing_frame.setStyleSheet("QFrame#Image_showing_frame {\n"
 "    background: transparent;\n"
 "    border: none;\n"
@@ -69,7 +75,7 @@ class Ui_MainWindow(object):
         self.Image_showing_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Image_showing_frame.setObjectName("Image_showing_frame")
         self.originalImageframe = QtWidgets.QFrame(self.Image_showing_frame)
-        self.originalImageframe.setGeometry(QtCore.QRect(20, 10, 291, 241))
+        self.originalImageframe.setGeometry(QtCore.QRect(20, 10, 431, 321))
         self.originalImageframe.setStyleSheet("QFrame#originalImageframe, QFrame#segmentedImageframe {\n"
 "    background: rgba(124, 120, 154, 0.22);\n"
 "    border: 1px solid rgba(255,255,255,0.55);\n"
@@ -87,7 +93,7 @@ class Ui_MainWindow(object):
         self.originalImageframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.originalImageframe.setObjectName("originalImageframe")
         self.segmentedImageframe = QtWidgets.QFrame(self.Image_showing_frame)
-        self.segmentedImageframe.setGeometry(QtCore.QRect(320, 10, 291, 241))
+        self.segmentedImageframe.setGeometry(QtCore.QRect(460, 10, 431, 321))
         self.segmentedImageframe.setStyleSheet("QFrame#originalImageframe, QFrame#segmentedImageframe {\n"
 "    background: rgba(124, 120, 154, 0.22);\n"
 "    border: 1px solid rgba(255,255,255,0.55);\n"
@@ -105,7 +111,14 @@ class Ui_MainWindow(object):
         self.segmentedImageframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.segmentedImageframe.setObjectName("segmentedImageframe")
         self.originalImagelabel = QtWidgets.QLabel(self.Image_showing_frame)
-        self.originalImagelabel.setGeometry(QtCore.QRect(50, 250, 211, 21))
+        self.originalImagelabel.setGeometry(QtCore.QRect(110, 330, 211, 21))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.originalImagelabel.setFont(font)
         self.originalImagelabel.setStyleSheet("QLabel {\n"
 "    color: #5d5e70;\n"
 "    background: transparent;\n"
@@ -115,7 +128,14 @@ class Ui_MainWindow(object):
         self.originalImagelabel.setAlignment(QtCore.Qt.AlignCenter)
         self.originalImagelabel.setObjectName("originalImagelabel")
         self.segmentedImagelabel = QtWidgets.QLabel(self.Image_showing_frame)
-        self.segmentedImagelabel.setGeometry(QtCore.QRect(360, 250, 211, 21))
+        self.segmentedImagelabel.setGeometry(QtCore.QRect(580, 330, 211, 21))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.segmentedImagelabel.setFont(font)
         self.segmentedImagelabel.setStyleSheet("QLabel {\n"
 "    color: #5d5e70;\n"
 "    background: transparent;\n"
@@ -125,7 +145,7 @@ class Ui_MainWindow(object):
         self.segmentedImagelabel.setAlignment(QtCore.Qt.AlignCenter)
         self.segmentedImagelabel.setObjectName("segmentedImagelabel")
         self.showDetailsframe = QtWidgets.QFrame(self.mainFrame)
-        self.showDetailsframe.setGeometry(QtCore.QRect(10, 330, 591, 271))
+        self.showDetailsframe.setGeometry(QtCore.QRect(10, 400, 871, 291))
         self.showDetailsframe.setStyleSheet("QFrame#showDetailsframe {\n"
 "    background: rgba(255,255,255,0.30);\n"
 "    border: 1px solid rgba(255,255,255,0.55);\n"
@@ -135,7 +155,10 @@ class Ui_MainWindow(object):
         self.showDetailsframe.setFrameShadow(QtWidgets.QFrame.Raised)
         self.showDetailsframe.setObjectName("showDetailsframe")
         self.scrollArea = QtWidgets.QScrollArea(self.showDetailsframe)
-        self.scrollArea.setGeometry(QtCore.QRect(0, 0, 591, 271))
+        self.scrollArea.setGeometry(QtCore.QRect(0, 40, 871, 251))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        self.scrollArea.setFont(font)
         self.scrollArea.setStyleSheet("QScrollArea {\n"
 "    background: transparent;\n"
 "    border: none;\n"
@@ -169,11 +192,35 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 591, 271))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 871, 251))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.analysisLabel = QtWidgets.QLabel(self.showDetailsframe)
+        self.analysisLabel.setGeometry(QtCore.QRect(13, 4, 841, 36))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.analysisLabel.setFont(font)
+        self.analysisLabel.setStyleSheet("QLabel {\n"
+"    color: #5d5e70;\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    font-weight: bold;\n"
+"    border-bottom: 2px solid #d7d4e8;\n"
+"    padding-bottom: 4px;\n"
+"}")
+        self.analysisLabel.setObjectName("analysisLabel")
         self.closePushbutton = QtWidgets.QPushButton(self.mainFrame)
-        self.closePushbutton.setGeometry(QtCore.QRect(10, 610, 591, 41))
+        self.closePushbutton.setGeometry(QtCore.QRect(510, 700, 281, 41))
+        self.closePushbutton.setBaseSize(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.closePushbutton.setFont(font)
         self.closePushbutton.setStyleSheet("QPushButton#closePushbutton {\n"
 "    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
@@ -205,6 +252,40 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.closePushbutton.setObjectName("closePushbutton")
+        self.savePushbutton = QtWidgets.QPushButton(self.mainFrame)
+        self.savePushbutton.setGeometry(QtCore.QRect(120, 700, 281, 41))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.savePushbutton.setFont(font)
+        self.savePushbutton.setStyleSheet("QPushButton#savePushbutton {\n"
+"    background: white;\n"
+"    color: #6f73b8;\n"
+"    font-size: 16px;\n"
+"    font-weight: 600;\n"
+"    border: 2px solid #a9addf;\n"
+"    border-radius: 12px;\n"
+"    padding: 10px 20px;\n"
+"}\n"
+"\n"
+"QPushButton#savePushbutton:hover {\n"
+"    background: #f7f7ff;\n"
+"    border: 2px solid #8e93d5;\n"
+"    color: #5f63a8;\n"
+"}\n"
+"\n"
+"QPushButton#savePushbutton:pressed {\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #8e93d5,\n"
+"        stop:1 #a9addf\n"
+"    );\n"
+"    color: white;\n"
+"    border: none;\n"
+"}")
+        self.savePushbutton.setObjectName("savePushbutton")
         self.gridLayout.addWidget(self.mainFrame, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -217,7 +298,9 @@ class Ui_MainWindow(object):
         self.softwareNameLabel.setText(_translate("MainWindow", "IC Teardown Analysis"))
         self.originalImagelabel.setText(_translate("MainWindow", "Original Image"))
         self.segmentedImagelabel.setText(_translate("MainWindow", "Segmented Image"))
+        self.analysisLabel.setText(_translate("MainWindow", "Analysis"))
         self.closePushbutton.setText(_translate("MainWindow", "Close"))
+        self.savePushbutton.setText(_translate("MainWindow", "Save Segmented Image"))
 
 
 if __name__ == "__main__":

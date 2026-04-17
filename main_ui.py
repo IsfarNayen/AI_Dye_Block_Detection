@@ -47,6 +47,12 @@ class Ui_MainWindow(object):
         self.HeaderFrame.setObjectName("HeaderFrame")
         self.softwareNameLabel = QtWidgets.QLabel(self.HeaderFrame)
         self.softwareNameLabel.setGeometry(QtCore.QRect(66, 3, 201, 21))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.softwareNameLabel.setFont(font)
         self.softwareNameLabel.setStyleSheet("    background: transparent;\n"
 "    color: white;\n"
 "    font-size: 16px;\n"
@@ -55,23 +61,20 @@ class Ui_MainWindow(object):
         self.softwareNameLabel.setObjectName("softwareNameLabel")
         self.closeButton = QtWidgets.QPushButton(self.HeaderFrame)
         self.closeButton.setGeometry(QtCore.QRect(824, 0, 51, 31))
-        self.closeButton.setStyleSheet("QPushButton#minimizeButton,\n"
-"QPushButton#closeButton {\n"
-"    background-color: rgba(255, 255, 255, 0.10);\n"
+        self.closeButton.setStyleSheet("QPushButton#closeButton {\n"
+"    background-color: rgba(255, 0, 0, 0.50);\n"
 "    color: white;\n"
 "    border: 1px solid rgba(255, 255, 255, 0.35);\n"
 "    border-radius: 8px;\n"
 "    font-size: 16px;\n"
 "}\n"
 "\n"
-"QPushButton#minimizeButton:hover,\n"
 "QPushButton#closeButton:hover {\n"
-"    background-color: rgba(255, 255, 255, 0.20);\n"
+"    background-color: rgba(255, 0, 0, 0.70);\n"
 "}\n"
 "\n"
-"QPushButton#minimizeButton:pressed,\n"
 "QPushButton#closeButton:pressed {\n"
-"    background-color: rgba(255, 255, 255, 0.28);\n"
+"    background-color: rgba(255, 0, 0, 1);\n"
 "}")
         self.closeButton.setObjectName("closeButton")
         self.minimizeButton = QtWidgets.QPushButton(self.HeaderFrame)
@@ -128,6 +131,12 @@ class Ui_MainWindow(object):
         self.mainBoxcontainer.setObjectName("mainBoxcontainer")
         self.dragAnddropicon = QtWidgets.QLabel(self.mainBoxcontainer)
         self.dragAnddropicon.setGeometry(QtCore.QRect(90, 150, 681, 71))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setWeight(50)
+        self.dragAnddropicon.setFont(font)
         self.dragAnddropicon.setStyleSheet("    background: transparent;\n"
 "    color: #8f93b7;\n"
 "    font-size: 54px;\n"
@@ -137,6 +146,12 @@ class Ui_MainWindow(object):
         self.dragAnddropicon.setObjectName("dragAnddropicon")
         self.uploadImagebutton = QtWidgets.QPushButton(self.mainBoxcontainer)
         self.uploadImagebutton.setGeometry(QtCore.QRect(320, 240, 181, 41))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(62)
+        self.uploadImagebutton.setFont(font)
         self.uploadImagebutton.setStyleSheet("QPushButton#uploadImagebutton {\n"
 "    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
@@ -192,6 +207,12 @@ class Ui_MainWindow(object):
         self.frame.setObjectName("frame")
         self.label_3 = QtWidgets.QLabel(self.frame)
         self.label_3.setGeometry(QtCore.QRect(30, 370, 811, 21))
+        font = QtGui.QFont()
+        font.setFamily("Times New Roman")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_3.setFont(font)
         self.label_3.setStyleSheet("    background: transparent;\n"
 "    color: #7c7d92;\n"
 "    font-size: 13px;\n"
@@ -221,7 +242,6 @@ class Ui_MainWindow(object):
 
 
 if __name__ == "__main__":
-    # main
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()

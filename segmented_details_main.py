@@ -1,5 +1,5 @@
 # segmented_details_main.py
-import sys
+import sys, os, shutil
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
@@ -18,17 +18,39 @@ class MainApp(QtWidgets.QMainWindow):
 
         self._drag_active = False
         self._drag_position = QtCore.QPoint()
-
+    
         self._setup_connections()
 
     def _setup_connections(self):
         self.ui.closePushbutton.clicked.connect(self.close)
+        self.ui.savePushbutton.clicked.connect(self.saveSegmentedimage)
+
+
+    def saveSegmentedimage(self):
+        source = self.segmented_image_path   # store this path earlier in your class
+        dest = self.open_file_dialog()
+
+        if dest:
+            shutil.copy(source, dest)
+
+
+    def open_file_dialog(self):
+        file_path, _ = QtWidgets.QFileDialog.getSaveFileName(
+            self,
+            "Save Segmented Image",
+            "segmented_output.png",
+            "PNG Image (*.png);;JPG Image (*.jpg);;JPEG Image (*.jpeg);;BMP Image (*.bmp)"
+        )
+        return file_path
 
 
     def set_result_data(self, original_image_path, segmented_image_path, details_df, area_summary=None):
+        self.segmented_image_path =  segmented_image_path
+        
         self.set_image_in_frame(self.ui.originalImageframe, original_image_path)
         self.set_image_in_frame(self.ui.segmentedImageframe, segmented_image_path)
         self.populate_details(details_df, area_summary)
+
 
     def set_image_in_frame(self, frame, image_path):
         # remove previous layout/widgets if any
@@ -60,6 +82,7 @@ class MainApp(QtWidgets.QMainWindow):
         layout = QtWidgets.QVBoxLayout(frame)
         layout.setContentsMargins(8, 8, 8, 8)
         layout.addWidget(label)
+
 
     def populate_details(self, details_df, area_summary=None):
         container = self.ui.scrollAreaWidgetContents
@@ -135,7 +158,7 @@ class MainApp(QtWidgets.QMainWindow):
             # Labels
             name_label = QtWidgets.QLabel(class_name)
             # hex_label = QtWidgets.QLabel(hex_color)
-            value_label = QtWidgets.QLabel(f"Area Percentage: {ratio_percent:.2f}%")
+            value_label = QtWidgets.QLabel(f"Area: {ratio_percent:.2f}%")
 
             # hex_label.setStyleSheet("""
             #     QLabel {

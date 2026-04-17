@@ -72,6 +72,14 @@ border-bottom-right-radius: 0px;</string>
           <height>21</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>-1</pointsize>
+          <weight>62</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">    background: transparent;
     color: white;
@@ -93,23 +101,20 @@ border-bottom-right-radius: 0px;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton#minimizeButton,
-QPushButton#closeButton {
-    background-color: rgba(255, 255, 255, 0.10);
+         <string notr="true">QPushButton#closeButton {
+    background-color: rgba(255, 0, 0, 0.50);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
     font-size: 16px;
 }
 
-QPushButton#minimizeButton:hover,
 QPushButton#closeButton:hover {
-    background-color: rgba(255, 255, 255, 0.20);
+    background-color: rgba(255, 0, 0, 0.70);
 }
 
-QPushButton#minimizeButton:pressed,
 QPushButton#closeButton:pressed {
-    background-color: rgba(255, 255, 255, 0.28);
+    background-color: rgba(255, 0, 0, 1);
 }</string>
         </property>
         <property name="text">
@@ -225,6 +230,14 @@ QPushButton#pushButton:pressed {
            <height>71</height>
           </rect>
          </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>-1</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">    background: transparent;
     color: #8f93b7;
@@ -247,6 +260,14 @@ QPushButton#pushButton:pressed {
            <width>181</width>
            <height>41</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>-1</pointsize>
+           <weight>62</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton#uploadImagebutton {
@@ -338,6 +359,14 @@ border-top-right-radius: 20px;</string>
            <width>811</width>
            <height>21</height>
           </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>-1</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">    background: transparent;

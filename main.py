@@ -1,5 +1,4 @@
-import sys
-import os, shutil
+import sys, os, shutil
 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt, QPoint
