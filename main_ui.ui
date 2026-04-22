@@ -94,7 +94,7 @@ border-bottom-right-radius: 0px;</string>
        <widget class="QPushButton" name="closeButton">
         <property name="geometry">
          <rect>
-          <x>824</x>
+          <x>814</x>
           <y>0</y>
           <width>51</width>
           <height>31</height>
@@ -124,7 +124,7 @@ QPushButton#closeButton:pressed {
        <widget class="QPushButton" name="minimizeButton">
         <property name="geometry">
          <rect>
-          <x>770</x>
+          <x>760</x>
           <y>0</y>
           <width>51</width>
           <height>31</height>

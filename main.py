@@ -6,21 +6,20 @@ from PyQt5.QtGui import QPixmap, QIcon
 
 from main_ui import Ui_MainWindow
 from drag_and_drop_event import DragDropFrame
-from backend import SegmentationBackend
 from segmented_details_main import MainApp as SegmentedDetailsWindow
+from worker_class_for_heavy_processing import PredictionWorker
+from loading_screen import LoadingScreen
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-backend = SegmentationBackend()
-backend.load_models()
+
 
 class MainApp(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        self.setFixedSize(self.size())
         self.icon_set(
             self.ui.uploadIconbutton,
             os.path.join(base_dir, "asset", "upload_icon.png"),
@@ -65,7 +64,6 @@ class MainApp(QtWidgets.QMainWindow):
         for child in children:
             child.setParent(new_frame)
             child.show()
-
         # Reposition children if needed
         # Usually geometry is preserved, but raise important widgets
         if hasattr(self.ui, "uploadImagebutton"):
@@ -80,7 +78,6 @@ class MainApp(QtWidgets.QMainWindow):
         # Replace reference
         self.ui.mainBoxcontainer = new_frame
         self.ui.mainBoxcontainer.fileDropped.connect(self.handle_dropped_image)
-
 
 
     def open_file_dialog(self):
@@ -98,41 +95,38 @@ class MainApp(QtWidgets.QMainWindow):
         self.process_and_show_result(file_path)
 
 
-
     def process_and_show_result(self, file_path):
-        try:
-            result = backend.predict_image_from_gui(file_path)
+        self.loading_dialog = LoadingScreen(self)
+        self.loading_dialog.show()
 
-            shutil.copy(file_path, ".\database")
-            
-            area_df = result["area_df"]
-            area_summary = result["area_summary"]
-            save_paths = result["save_paths"]
-            
-            # Keep only what you want to show in the detail area
-            details_df = area_df[["class_name", "ratio_percent", "class_color_hex", "class_color_rgb"]].copy()
-
-            overlay_path = save_paths.get("overlay_path", "")
-            overlay_path = os.path.join(base_dir, overlay_path)
-            original_path = file_path
-
-            self.result_window = SegmentedDetailsWindow()
-            self.result_window.set_result_data(
-                original_image_path=original_path,
-                segmented_image_path=overlay_path,
-                details_df=details_df,
-                # area_summary=area_summary
-            )
-            self.result_window.show()
-
-        except Exception as e:
-            QtWidgets.QMessageBox.critical(
-                self,
-                "Processing Error",
-                f"Failed to process image.\n\n{str(e)}"
-            )
-
+        self.worker = PredictionWorker(file_path)
+        self.worker.finished.connect(self.on_processing_finished)
+        self.worker.start()   
     
+    
+    def on_processing_finished(self, result, file_path):
+        self.loading_dialog.close()
+
+        shutil.copy(file_path, ".\\database")
+
+        area_df = result["area_df"]
+        area_summary = result["area_summary"]
+        save_paths = result["save_paths"]
+
+        details_df = area_df[["class_name", "ratio_percent", "class_color_hex", "class_color_rgb"]].copy()
+
+        overlay_path = save_paths.get("overlay_path", "")
+        overlay_path = os.path.join(base_dir, overlay_path)
+        original_path = file_path
+
+        self.result_window = SegmentedDetailsWindow()
+        self.result_window.set_result_data(
+            original_image_path=original_path,
+            segmented_image_path=overlay_path,
+            details_df=details_df,
+            # area_summary=area_summary
+        )
+        self.result_window.show() 
 
 
     def icon_set(self, widget, icon_path, w, h):
@@ -169,7 +163,6 @@ class MainApp(QtWidgets.QMainWindow):
 
         # Finally close main window
         self.close()
-        
 
 
     def mousePressEvent(self, event):
@@ -178,14 +171,17 @@ class MainApp(QtWidgets.QMainWindow):
             self._drag_position = event.globalPos() - self.frameGeometry().topLeft()
             event.accept()
 
+
     def mouseMoveEvent(self, event):
         if self._drag_active and event.buttons() == Qt.LeftButton:
             self.move(event.globalPos() - self._drag_position)
             event.accept()
 
+
     def mouseReleaseEvent(self, event):
         self._drag_active = False
         event.accept()
+
 
 
 if __name__ == "__main__":
