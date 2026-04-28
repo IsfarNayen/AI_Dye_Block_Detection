@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
 "    border: none;")
         self.softwareNameLabel.setObjectName("softwareNameLabel")
         self.closeButton = QtWidgets.QPushButton(self.HeaderFrame)
-        self.closeButton.setGeometry(QtCore.QRect(824, 0, 51, 31))
+        self.closeButton.setGeometry(QtCore.QRect(814, 0, 51, 31))
         self.closeButton.setStyleSheet("QPushButton#closeButton {\n"
 "    background-color: rgba(255, 0, 0, 0.50);\n"
 "    color: white;\n"
@@ -78,7 +78,7 @@ class Ui_MainWindow(object):
 "}")
         self.closeButton.setObjectName("closeButton")
         self.minimizeButton = QtWidgets.QPushButton(self.HeaderFrame)
-        self.minimizeButton.setGeometry(QtCore.QRect(770, 0, 51, 31))
+        self.minimizeButton.setGeometry(QtCore.QRect(760, 0, 51, 31))
         self.minimizeButton.setStyleSheet("QPushButton#minimizeButton,\n"
 "QPushButton#pushButton {\n"
 "    background-color: rgba(255, 255, 255, 0.10);\n"
@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
         self.uploadImagebutton.setGeometry(QtCore.QRect(320, 240, 181, 41))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(True)
         font.setWeight(62)
         self.uploadImagebutton.setFont(font)

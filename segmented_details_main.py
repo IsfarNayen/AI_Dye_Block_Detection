@@ -3,8 +3,10 @@ import sys, os, shutil
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
-
+from PIL import Image, ImageDraw, ImageFont
 from segmented_details import Ui_MainWindow
+from save_image_function import SaveSegmentedImage
+
 
 
 class MainApp(QtWidgets.QMainWindow):
@@ -12,7 +14,7 @@ class MainApp(QtWidgets.QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
@@ -20,19 +22,21 @@ class MainApp(QtWidgets.QMainWindow):
         self._drag_position = QtCore.QPoint()
     
         self._setup_connections()
-
+        self.setFixedSize(self.size())
+    
     def _setup_connections(self):
         self.ui.closePushbutton.clicked.connect(self.close)
         self.ui.savePushbutton.clicked.connect(self.saveSegmentedimage)
 
 
     def saveSegmentedimage(self):
-        source = self.segmented_image_path   # store this path earlier in your class
-        dest = self.open_file_dialog()
-
-        if dest:
-            shutil.copy(source, dest)
-
+        saver = SaveSegmentedImage(
+            segmented_image_path=self.segmented_image_path,
+            all_details=self.all_details,
+            open_file_dialog_func=self.open_file_dialog
+        )
+        saver.save()
+         
 
     def open_file_dialog(self):
         file_path, _ = QtWidgets.QFileDialog.getSaveFileName(
@@ -84,9 +88,14 @@ class MainApp(QtWidgets.QMainWindow):
         layout.addWidget(label)
 
 
+
     def populate_details(self, details_df, area_summary=None):
         container = self.ui.scrollAreaWidgetContents
 
+        # All details imported from the model
+        self.all_details = details_df
+        
+        
         # Clear old layout safely
         old_layout = container.layout()
         if old_layout is not None:
@@ -118,12 +127,17 @@ class MainApp(QtWidgets.QMainWindow):
             """)
             layout.addWidget(summary_label)
 
-        # 🔥 Main loop
+
+        # Main loop
         for _, row in details_df.iterrows():
             class_name = str(row["class_name"])
             ratio_percent = float(row["ratio_percent"])
             hex_color = str(row["class_color_hex"])   # ✅ Direct use
 
+            
+            self.color_values = str(row["class_color_rgb"])
+            
+            
             # Card container
             card = QtWidgets.QFrame()
             card.setStyleSheet("""
@@ -158,17 +172,8 @@ class MainApp(QtWidgets.QMainWindow):
             # Labels
             name_label = QtWidgets.QLabel(class_name)
             # hex_label = QtWidgets.QLabel(hex_color)
-            value_label = QtWidgets.QLabel(f"Area: {ratio_percent:.2f}%")
+            value_label = QtWidgets.QLabel(f"Area Percentage: {ratio_percent:.2f}%")
 
-            # hex_label.setStyleSheet("""
-            #     QLabel {
-            #         color: #7c7f96;
-            #         font-size: 12px;
-            #         font-weight: 500;
-            #     }
-            # """)
-
-            # Left group (color + name + hex)
             left_layout = QtWidgets.QHBoxLayout()
             left_layout.setSpacing(8)
             left_layout.addWidget(color_box)
