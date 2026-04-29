@@ -115,6 +115,18 @@ class MainApp(QtWidgets.QMainWindow):
 
         details_df = area_df[["class_name", "ratio_percent", "class_color_hex", "class_color_rgb"]].copy()
 
+        # drop_indices = []
+
+        # for idx, r_percent in details_df["ratio_percent"].items():
+        #     if r_percent == 0:
+        #         drop_indices.append(idx)
+
+        # details_df = details_df.drop(drop_indices).copy()
+        
+        mask = details_df["ratio_percent"] != 0
+        # print(mask)        
+        details_df = details_df[mask]
+        
         overlay_path = save_paths.get("overlay_path", "")
         overlay_path = os.path.join(base_dir, overlay_path)
         original_path = file_path
