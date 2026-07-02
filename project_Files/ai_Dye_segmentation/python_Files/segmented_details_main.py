@@ -4,8 +4,8 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PIL import Image, ImageDraw, ImageFont
-from segmented_details import Ui_MainWindow
-from save_image_function import SaveSegmentedImage
+from ..UI.skeleton_UI_files.segmented_details import Ui_MainWindow
+from .save_image_function import SaveSegmentedImage
 
 
 

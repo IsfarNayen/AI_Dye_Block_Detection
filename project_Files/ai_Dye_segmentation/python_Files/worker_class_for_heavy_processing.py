@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtWidgets
 import os
 import shutil
-from backend import SegmentationBackend
+from .backend import SegmentationBackend
 backend = SegmentationBackend()
 backend.load_models()
 

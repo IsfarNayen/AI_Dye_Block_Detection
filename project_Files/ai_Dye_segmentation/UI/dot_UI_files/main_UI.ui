@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>792</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>740</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Teardown AI Software</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: #e8e4f4; }</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget { background: transparent; }</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QFrame" name="mainFrame">
+      <property name="styleSheet">
+       <string notr="true">QFrame#mainFrame {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #f4f1fb, stop:0.45 #ebe7f7, stop:1 #dcd6ef);
+    border: 1px solid rgba(255,255,255,0.70);
+    border-radius: 24px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="HeaderFrame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1001</width>
+         <height>56</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#HeaderFrame {
+    background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #8d96cb, stop:1 #b6bae6);
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QPushButton" name="logoPushbutton">
+        <property name="geometry">
+         <rect>
+          <x>22</x>
+          <y>8</y>
+          <width>40</width>
+          <height>40</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#logoPushbutton { background: transparent; color: white; border: none; font-size: 50px; font-weight: 700; }</string>
+        </property>
+        <property name="text">
+         <string>◔</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="softwareNameLabel">
+        <property name="geometry">
+         <rect>
+          <x>68</x>
+          <y>12</y>
+          <width>320</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#softwareNameLabel { background: transparent; color: white; border: none; font-family: Times New Roman; font-size: 20px; font-weight: 600; }</string>
+        </property>
+        <property name="text">
+         <string>Teardown AI Software</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="minimizeButton">
+        <property name="geometry">
+         <rect>
+          <x>880</x>
+          <y>10</y>
+          <width>46</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#minimizeButton { background-color: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.36); border-radius: 9px; font-size: 18px; } QPushButton#minimizeButton:hover { background-color: rgba(255,255,255,0.24); }</string>
+        </property>
+        <property name="text">
+         <string>−</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="closeButton">
+        <property name="geometry">
+         <rect>
+          <x>938</x>
+          <y>10</y>
+          <width>46</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#closeButton { background-color: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.36); border-radius: 9px; font-size: 18px; } QPushButton#closeButton:hover { background-color: rgba(220,110,130,0.70); }</string>
+        </property>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="bodyFrame">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>60</y>
+         <width>1001</width>
+         <height>711</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#bodyFrame { background: rgba(255,255,255,0.16); border-bottom-left-radius: 22px; border-bottom-right-radius: 22px; }</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="appIconLabel">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>50</y>
+          <width>101</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#appIconLabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #8f96d8, stop:1 #b6b2ea); color: white; border: 1px solid rgba(255,255,255,0.75); border-radius: 50px; font-size: 180px; font-weight: 700;}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="welcomeLabel">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>153</y>
+          <width>570</width>
+          <height>58</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#welcomeLabel { background: transparent; border: none; color: #505166; font-family: Times New Roman; font-size: 36px; font-weight: 700; }</string>
+        </property>
+        <property name="text">
+         <string>Welcome to Teardown AI</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="subtitleLabel">
+        <property name="geometry">
+         <rect>
+          <x>275</x>
+          <y>213</y>
+          <width>500</width>
+          <height>62</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#subtitleLabel { background: transparent; border: none; color: #777990; font-family: Times New Roman; font-size: 18px; line-height: 140%; }</string>
+        </property>
+        <property name="text">
+         <string>Advanced IC analysis powered by AI.
+Choose an analysis mode to get started.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QFrame" name="blockSegmentationCard">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>300</y>
+          <width>291</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame#blockSegmentationCard { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 rgba(255,255,255,0.58), stop:1 rgba(255,255,255,0.30)); border: 1px solid rgba(255,255,255,0.75); border-radius: 22px; } QFrame#blockSegmentationCard:hover { border: 1px solid #9b93df; background: rgba(255,255,255,0.48); }</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="blockSegcornericonlabel">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>20</y>
+           <width>44</width>
+           <height>44</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#blockSegcornericonlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #b596f0, stop:1 #8f84d9); color: white; border: none; border-radius: 22px; font-size: 22px; }</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="blockSegiconlabel">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>50</y>
+           <width>112</width>
+           <height>112</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#blockSegiconlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #8d7bd9, stop:1 #c4a2ee); border: 1px solid rgba(255,255,255,0.75); border-radius: 26px; color: white; font-family: Segoe UI; font-size: 44px; }</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="blockSegtitlelabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>160</y>
+           <width>270</width>
+           <height>34</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#blockSegtitlelabel { background: transparent; border: none; color: #52536a; font-family: Times New Roman; font-size: 23px; font-weight: 700; }</string>
+         </property>
+         <property name="text">
+          <string>Block Segmentation</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="blockSegdetailslabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>200</y>
+           <width>250</width>
+           <height>46</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#blockSegdetailslabel { background: transparent; border: none; color: #777990; font-family: Times New Roman; font-size: 14px; }</string>
+         </property>
+         <property name="text">
+          <string>Segment IC images into functional blocks and calculate area of each block.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="blockSegOpenButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>250</y>
+           <width>250</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#blockSegOpenButton { background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #8d7bd9, stop:1 #9da0e4); color: white; border: none; border-radius: 20px; font-family: Times New Roman; font-size: 17px; font-weight: 600; } QPushButton#blockSegOpenButton:hover { background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #8170cf, stop:1 #9095dc); } QPushButton#blockSegOpenButton:pressed { background: #7467bd; }</string>
+         </property>
+         <property name="text">
+          <string>Open  →</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="nodeIdentificationCard">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>300</y>
+          <width>301</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame#nodeIdentificationCard { background: qlineargradient(x1:0,y1:0,x2:0,y2:1, stop:0 rgba(255,255,255,0.58), stop:1 rgba(255,255,255,0.30)); border: 1px solid rgba(255,255,255,0.75); border-radius: 22px; } QFrame#nodeIdentificationCard:hover { border: 1px solid #7db7e8; background: rgba(255,255,255,0.48); }</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="nodeIdenticornericonlabel">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>20</y>
+           <width>44</width>
+           <height>44</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#nodeIdenticornericonlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #8ec1ee, stop:1 #6aa4dc); color: white; border: none; border-radius: 22px; font-size: 22px; }</string>
+         </property>
+         <property name="text">
+          <string>⌘</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="nodeIdentiiconlabel">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>50</y>
+           <width>112</width>
+           <height>112</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#nodeIdentiiconlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #6fa6dc, stop:1 #9ecbee); border: 1px solid rgba(255,255,255,0.75); border-radius: 26px; color: white; font-family: Segoe UI; font-size: 44px; }</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="nodeIdentititlelabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>163</y>
+           <width>270</width>
+           <height>34</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#nodeIdentititlelabel { background: transparent; border: none; color: #52536a; font-family: Times New Roman; font-size: 23px; font-weight: 700; }</string>
+         </property>
+         <property name="text">
+          <string>Node Identification</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="nodeIdentidetailslabel">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>200</y>
+           <width>250</width>
+           <height>46</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#nodeIdentidetailslabel { background: transparent; border: none; color: #777990; font-family: Times New Roman; font-size: 14px; }</string>
+         </property>
+         <property name="text">
+          <string>Detect and identify nodes in IC images for detailed structure-level analysis.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="nodeIdentiOpenButton">
+         <property name="geometry">
+          <rect>
+           <x>30</x>
+           <y>250</y>
+           <width>250</width>
+           <height>42</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#nodeIdentiOpenButton { background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #6fa6dc, stop:1 #8fc5ee); color: white; border: none; border-radius: 20px; font-family: Times New Roman; font-size: 17px; font-weight: 600; } QPushButton#nodeIdentiOpenButton:hover { background: qlineargradient(x1:0,y1:0,x2:1,y2:0, stop:0 #629bd3, stop:1 #82b9e8); } QPushButton#nodeIdentiOpenButton:pressed { background: #5b8fc4; }</string>
+         </property>
+         <property name="text">
+          <string>Open  →</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="infoPanelFrame">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>620</y>
+          <width>910</width>
+          <height>74</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame#infoPanelFrame { background: rgba(255,255,255,0.34); border: 1px solid rgba(255,255,255,0.65); border-radius: 20px; }</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="infoIconLabel">
+         <property name="geometry">
+          <rect>
+           <x>26</x>
+           <y>17</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#infoIconLabel { background: #9da0e4; color: white; border: none; border-radius: 20px; font-family:Times New Roman; font-size: 22px; font-weight: 700; }</string>
+         </property>
+         <property name="text">
+          <string>i</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="infoTitleLabel">
+         <property name="geometry">
+          <rect>
+           <x>82</x>
+           <y>12</y>
+           <width>520</width>
+           <height>26</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#infoTitleLabel { background: transparent; border: none; color: #5f6172; font-family: Times New Roman; font-size: 16px; font-weight: 600; }</string>
+         </property>
+         <property name="text">
+          <string>Select an analysis mode to begin.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="infoDetailsLabel">
+         <property name="geometry">
+          <rect>
+           <x>82</x>
+           <y>38</y>
+           <width>560</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#infoDetailsLabel { background: transparent; border: none; color: #7b7d94; font-family: Times New Roman; font-size: 13px; }</string>
+         </property>
+         <property name="text">
+          <string>Upload IC teardown images and let the AI extract block-level or node-level insights.</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>760</x>
+           <y>20</y>
+           <width>131</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -2,35 +2,39 @@
 
 import os
 import cv2
-
-from pipeline import ChipSegmentationPipeline, class_mask_to_rgb
+from pathlib import Path
+from .pipeline import ChipSegmentationPipeline, class_mask_to_rgb
 
 
 # =========================================================
 # MODEL CONFIGURATION
 # =========================================================
 # Update these paths according to where your .pth files are stored.
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent.parent.parent
+MODEL_DIR = PROJECT_ROOT / "models" / "ai_Dye_segmentation"
+
 
 MODEL_CONFIGS = [
     {
         "arch": "Unet",
         "encoder": "resnet34",
-        "weight_path": "models/Unet_resnet34_best.pth"
+        "weight_path": str(MODEL_DIR / "Unet_resnet34_best.pth")
     },
     {
         "arch": "Unet",
         "encoder": "efficientnet-b0",
-        "weight_path": "models/Unet_efficientnet-b0_best.pth"
+        "weight_path": str(MODEL_DIR / "Unet_efficientnet-b0_best.pth")
     },
     {
         "arch": "FPN",
         "encoder": "resnet34",
-        "weight_path": "models/FPN_resnet34_best.pth"
+        "weight_path": str(MODEL_DIR / "FPN_resnet34_best.pth")
     },
     {
         "arch": "DeepLabV3Plus",
         "encoder": "mobilenet_v2",
-        "weight_path": "models/DeepLabV3Plus_mobilenet_v2_best.pth"
+        "weight_path": str(MODEL_DIR / "DeepLabV3Plus_mobilenet_v2_best.pth")
     }
 ]
 
@@ -78,7 +82,7 @@ class SegmentationBackend:
         image_height_real=None,
         image_width_real=None,
         real_unit="um",
-        save_dir="outputs",
+        save_dir=fr"{MODEL_DIR}/outputs",
         alpha=0.45,
         weights=None
     ):
