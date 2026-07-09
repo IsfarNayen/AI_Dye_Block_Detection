@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'segmented_details.ui'
+# Form implementation generated from reading ui file '.\project_Files\ai_Dye_segmentation\UI\dot_UI_files\segmented_details.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #

@@ -31,14 +31,13 @@
        <string notr="true">QFrame#mainFrame {
     background: qlineargradient(
         x1:0, y1:0, x2:1, y2:1,
-        stop:0 #F3F7F7,
-        stop:0.55 #EEF4F3,
-        stop:1 #E3EFED
+        stop:0 #F4F7FD,
+        stop:0.55 #EEF2FB,
+        stop:1 #E6ECF8
     );
-    border: 1px solid #CFE3DF;
-    border-radius: 24px;
-}
-</string>
+    border: 1px solid #C9D6EF;
+    border-radius: 28px;
+}</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -59,12 +58,12 @@
         <string notr="true">QFrame#HeaderFrame {
     background: qlineargradient(
         x1:0, y1:0, x2:1, y2:0,
-        stop:0 #B7D7D2,
-        stop:0.5 #A7CDC8,
-        stop:1 #90BEB7
+        stop:0 #D9E4F7,
+        stop:0.55 #C7D8F2,
+        stop:1 #B8CBEA
     );
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     border: none;
@@ -97,11 +96,10 @@
          <string notr="true">QLabel#softwareNameLabel {
     background: transparent;
     border: none;
-    color: #12786D;
+    color: #6B97DA;
     font-size: 18px;
     font-weight: 700;
-}
-</string>
+}</string>
         </property>
         <property name="text">
          <string>Node Analysis</string>
@@ -118,20 +116,28 @@
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton#closeButton {
-    background-color: rgba(220, 70, 70, 0.78);
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #F26A61,
+        stop:1 #E94B43
+    );
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 12px;
+    border: none;
+    border-radius: 14px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 QPushButton#closeButton:hover {
-    background-color: rgba(235, 85, 85, 0.90);
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #F57A72,
+        stop:1 #ED5A52
+    );
 }
 
 QPushButton#closeButton:pressed {
-    background-color: rgba(190, 45, 45, 1.0);
+    background: #D9443D;
 }</string>
         </property>
         <property name="text">
@@ -149,12 +155,20 @@ QPushButton#closeButton:pressed {
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton#minimizeButton {
-    background: rgba(255, 255, 255, 0.22);
-    color: #2B837A;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.20);
+    color: #2D63B3;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 14px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+QPushButton#minimizeButton:hover {
+    background: rgba(255, 255, 255, 0.34);
+}
+
+QPushButton#minimizeButton:pressed {
+    background: rgba(255, 255, 255, 0.44);
 }</string>
         </property>
         <property name="text">
@@ -196,11 +210,10 @@ QPushButton#closeButton:pressed {
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">    background-color: rgba(255, 255, 255, 0.18);
-    border-bottom-left-radius: 22px;
-    border-bottom-right-radius: 22px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;</string>
+        <string notr="true">QFrame#bodyFrame {
+    background: transparent;
+    border: none;
+}</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
@@ -218,13 +231,11 @@ QPushButton#closeButton:pressed {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">    background: qlineargradient(
-        x1:0, y1:0, x2:0, y2:1,
-        stop:0 rgba(255,255,255,0.34),
-        stop:1 rgba(255,255,255,0.20)
-    );
-    border: 1px dashed #d3cede;
-    border-radius: 22px;</string>
+         <string notr="true">QFrame#mainBoxcontainer {
+    background: rgba(210, 223, 246, 0.28);
+    border: 0px solid #D3DEF2;
+    border-radius: 18px;
+}</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -235,9 +246,9 @@ QPushButton#closeButton:pressed {
         <widget class="QLabel" name="dragAnddropicon">
          <property name="geometry">
           <rect>
-           <x>80</x>
+           <x>20</x>
            <y>150</y>
-           <width>691</width>
+           <width>811</width>
            <height>71</height>
           </rect>
          </property>
@@ -250,14 +261,16 @@ QPushButton#closeButton:pressed {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">    background: transparent;
-    color: #8f93b7;
-    font-size: 54px;
+          <string notr="true">QLabel#dragAnddropicon {
+    background: transparent;
+    border: none;
+    color: #6B97DA;
+    font-size: 40px;
     font-weight: 400;
-    border: none;</string>
+}</string>
          </property>
          <property name="text">
-          <string>Drag &amp; Drop Nodal Image Here</string>
+          <string>Drag &amp; Drop SEM Cross Section Image Here</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -284,8 +297,8 @@ QPushButton#closeButton:pressed {
           <string notr="true">QPushButton#uploadImagebutton {
     background: qlineargradient(
         x1:0, y1:0, x2:1, y2:0,
-        stop:0 #8f9ad8,
-        stop:1 #b4b8e9
+        stop:0 #6FA4EE,
+        stop:1 #89C0F3
     );
     color: white;
     border: none;
@@ -298,46 +311,38 @@ QPushButton#closeButton:pressed {
 QPushButton#uploadImagebutton:hover {
     background: qlineargradient(
         x1:0, y1:0, x2:1, y2:0,
-        stop:0 #8692d2,
-        stop:1 #aeb3e4
+        stop:0 #6399E8,
+        stop:1 #7BB7EE
     );
 }
 
 QPushButton#uploadImagebutton:pressed {
-    background: qlineargradient(
-        x1:0, y1:0, x2:1, y2:0,
-        stop:0 #7986c8,
-        stop:1 #a0a8dc
-    );
+    background: #5D93DE;
 }</string>
          </property>
          <property name="text">
           <string>Upload an image</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="uploadIconbutton">
+        <widget class="QLabel" name="uploadImagelabel">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>70</y>
-           <width>141</width>
-           <height>81</height>
+           <x>10</x>
+           <y>0</y>
+           <width>841</width>
+           <height>181</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">    background: transparent;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border: none;</string>
+          <string notr="true">QLabel#uploadImagelabel { background: transparent; border: 0px solid rgba(255,255,255,0.75); border-radius: 26px; }</string>
          </property>
          <property name="text">
           <string/>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
         </widget>
-        <zorder>dragAnddropicon</zorder>
-        <zorder>uploadIconbutton</zorder>
-        <zorder>uploadImagebutton</zorder>
        </widget>
        <widget class="QFrame" name="frame">
         <property name="geometry">
@@ -349,12 +354,15 @@ QPushButton#uploadImagebutton:pressed {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(255, 255, 255, 0.15);
-border-top: 0px solid rgba(210,205,225,0.8);
-border-bottom-left-radius: 20px;
-border-bottom-right-radius: 20px;
-border-top-left-radius: 20px;
-border-top-right-radius: 20px;</string>
+         <string notr="true">QFrame#frame {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #F7F9FE,
+        stop:1 #EEF3FC
+    );
+    border: 2px dashed #7AA4E8;
+    border-radius: 26px;
+}</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -381,12 +389,14 @@ border-top-right-radius: 20px;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">    background: transparent;
-    color: #7c7d92;
+    color: #4A7FD2;
     font-size: 13px;
     font-weight: 400;
     border: none;
     padding-left: 12px;
-    padding-right: 12px;</string>
+    padding-right: 12px;
+
+</string>
          </property>
          <property name="text">
           <string>Upload and image for Node Identification and Get the Node result</string>

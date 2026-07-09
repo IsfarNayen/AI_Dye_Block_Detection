@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>792</height>
+    <width>991</width>
+    <height>767</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -20,11 +20,15 @@
    <string>Teardown AI Software</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow { background-color: #e8e4f4; }</string>
+   <string notr="true">QMainWindow {
+    background-color: #e9e8f4;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">QWidget#centralwidget { background: transparent; }</string>
+    <string notr="true">QWidget#centralwidget {
+    background: transparent;
+}</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -43,9 +47,14 @@
      <widget class="QFrame" name="mainFrame">
       <property name="styleSheet">
        <string notr="true">QFrame#mainFrame {
-    background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #f4f1fb, stop:0.45 #ebe7f7, stop:1 #dcd6ef);
-    border: 1px solid rgba(255,255,255,0.70);
-    border-radius: 24px;
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #f1eff9,
+        stop:0.45 #eceaf7,
+        stop:1 #dfe7f8
+    );
+    border: 1px solid rgba(255,255,255,0.50);
+    border-radius: 26px;
 }</string>
       </property>
       <property name="frameShape">
@@ -59,8 +68,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1001</width>
-         <height>56</height>
+         <width>971</width>
+         <height>45</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -80,7 +89,7 @@
         <property name="geometry">
          <rect>
           <x>22</x>
-          <y>8</y>
+          <y>-2</y>
           <width>40</width>
           <height>40</height>
          </rect>
@@ -95,16 +104,16 @@
          <string notr="true">QPushButton#logoPushbutton { background: transparent; color: white; border: none; font-size: 50px; font-weight: 700; }</string>
         </property>
         <property name="text">
-         <string>◔</string>
+         <string/>
         </property>
        </widget>
        <widget class="QLabel" name="softwareNameLabel">
         <property name="geometry">
          <rect>
           <x>68</x>
-          <y>12</y>
+          <y>10</y>
           <width>320</width>
-          <height>32</height>
+          <height>21</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -117,8 +126,8 @@
        <widget class="QPushButton" name="minimizeButton">
         <property name="geometry">
          <rect>
-          <x>880</x>
-          <y>10</y>
+          <x>842</x>
+          <y>5</y>
           <width>46</width>
           <height>34</height>
          </rect>
@@ -133,8 +142,8 @@
        <widget class="QPushButton" name="closeButton">
         <property name="geometry">
          <rect>
-          <x>938</x>
-          <y>10</y>
+          <x>900</x>
+          <y>5</y>
           <width>46</width>
           <height>34</height>
          </rect>
@@ -151,9 +160,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>60</y>
-         <width>1001</width>
-         <height>711</height>
+         <y>50</y>
+         <width>971</width>
+         <height>691</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -168,8 +177,8 @@
        <widget class="QLabel" name="appIconLabel">
         <property name="geometry">
          <rect>
-          <x>460</x>
-          <y>50</y>
+          <x>440</x>
+          <y>20</y>
           <width>101</width>
           <height>101</height>
          </rect>
@@ -190,8 +199,8 @@
        <widget class="QLabel" name="welcomeLabel">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>153</y>
+          <x>220</x>
+          <y>123</y>
           <width>570</width>
           <height>58</height>
          </rect>
@@ -209,8 +218,8 @@
        <widget class="QLabel" name="subtitleLabel">
         <property name="geometry">
          <rect>
-          <x>275</x>
-          <y>213</y>
+          <x>255</x>
+          <y>183</y>
           <width>500</width>
           <height>62</height>
          </rect>
@@ -229,8 +238,8 @@ Choose an analysis mode to get started.</string>
        <widget class="QFrame" name="blockSegmentationCard">
         <property name="geometry">
          <rect>
-          <x>180</x>
-          <y>300</y>
+          <x>160</x>
+          <y>260</y>
           <width>291</width>
           <height>311</height>
          </rect>
@@ -244,25 +253,6 @@ Choose an analysis mode to get started.</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="blockSegcornericonlabel">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>20</y>
-           <width>44</width>
-           <height>44</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel#blockSegcornericonlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #b596f0, stop:1 #8f84d9); color: white; border: none; border-radius: 22px; font-size: 22px; }</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
         <widget class="QLabel" name="blockSegiconlabel">
          <property name="geometry">
           <rect>
@@ -343,8 +333,8 @@ Choose an analysis mode to get started.</string>
        <widget class="QFrame" name="nodeIdentificationCard">
         <property name="geometry">
          <rect>
-          <x>540</x>
-          <y>300</y>
+          <x>520</x>
+          <y>260</y>
           <width>301</width>
           <height>311</height>
          </rect>
@@ -358,25 +348,6 @@ Choose an analysis mode to get started.</string>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QLabel" name="nodeIdenticornericonlabel">
-         <property name="geometry">
-          <rect>
-           <x>240</x>
-           <y>20</y>
-           <width>44</width>
-           <height>44</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QLabel#nodeIdenticornericonlabel { background: qlineargradient(x1:0,y1:0,x2:1,y2:1, stop:0 #8ec1ee, stop:1 #6aa4dc); color: white; border: none; border-radius: 22px; font-size: 22px; }</string>
-         </property>
-         <property name="text">
-          <string>⌘</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
         <widget class="QLabel" name="nodeIdentiiconlabel">
          <property name="geometry">
           <rect>
@@ -457,8 +428,8 @@ Choose an analysis mode to get started.</string>
        <widget class="QFrame" name="infoPanelFrame">
         <property name="geometry">
          <rect>
-          <x>50</x>
-          <y>620</y>
+          <x>30</x>
+          <y>590</y>
           <width>910</width>
           <height>74</height>
          </rect>

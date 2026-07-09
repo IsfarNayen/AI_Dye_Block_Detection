@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>909</width>
+    <height>782</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #eaf4fd;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget {
+    background: transparent;
+}</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="mainFrame">
+      <property name="styleSheet">
+       <string notr="true">QFrame#mainFrame {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #eef7fe,
+        stop:1 #d7eaf9
+    );
+    border: 1px solid rgba(255,255,255,0.70);
+    border-radius: 24px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="HeaderFrame">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>561</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#HeaderFrame {
+    background: transparent;
+    border: none;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="softwareNameLabel">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>300</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#softwareNameLabel {
+    background: transparent;
+    color: #1c4fa3;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    padding-left: 6px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Node Classification</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="Image_showing_frame">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>40</y>
+         <width>901</width>
+         <height>431</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#Image_showing_frame {
+    background: transparent;
+    border: none;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="originalImageframe">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>871</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame#originalImageframe {
+    background: rgba(255,255,255,0.36);
+    border: 1px solid rgba(111, 174, 245, 0.55);
+    border-radius: 18px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QFrame" name="identifiedLineLeft">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>400</y>
+           <width>115</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#identifiedLineLeft, QFrame#identifiedLineRight {
+    background: #9fc9f8;
+    border: none;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="identifiedGlowDotLeft">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>394</y>
+           <width>12</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#identifiedGlowDotLeft, QLabel#identifiedGlowDotRight {
+    background: #247ef4;
+    border-radius: 6px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="originalImagelabel">
+         <property name="geometry">
+          <rect>
+           <x>352</x>
+           <y>386</y>
+           <width>170</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#originalImagelabel {
+    color: #1e6de8;
+    background: transparent;
+    border: none;
+}</string>
+         </property>
+         <property name="text">
+          <string>Identified Area</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QLabel" name="identifiedGlowDotRight">
+         <property name="geometry">
+          <rect>
+           <x>530</x>
+           <y>394</y>
+           <width>12</width>
+           <height>12</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#identifiedGlowDotLeft, QLabel#identifiedGlowDotRight {
+    background: #247ef4;
+    border-radius: 6px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QFrame" name="identifiedLineRight">
+         <property name="geometry">
+          <rect>
+           <x>546</x>
+           <y>400</y>
+           <width>115</width>
+           <height>2</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#identifiedLineLeft, QFrame#identifiedLineRight {
+    background: #9fc9f8;
+    border: none;
+}</string>
+         </property>
+        </widget>
+        <widget class="QFrame" name="identifiedImageframe">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>851</width>
+           <height>371</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#identifiedImageframe {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #1e4f96,
+        stop:0.5 #255dae,
+        stop:1 #173e78
+    );
+    border: 1px solid #6faef5;
+    border-radius: 16px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="showDetailsframe">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>480</y>
+         <width>871</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#showDetailsframe {
+    background: rgba(255,255,255,0.32);
+    border: 1px solid rgba(111, 174, 245, 0.45);
+    border-radius: 16px;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="analysisLabel">
+        <property name="geometry">
+         <rect>
+          <x>13</x>
+          <y>8</y>
+          <width>841</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>13</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#analysisLabel {
+    color: #173a84;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid #d6e7fb;
+    padding-bottom: 4px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Classified Node Type</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="tickLabel">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>50</y>
+          <width>64</width>
+          <height>64</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#tickLabel {
+    background: rgba(255,255,255,0.70);
+    border: 2px solid #7bb8f6;
+    border-radius: 32px;
+    color: #1d6be6;
+    font-size: 28px;
+    font-weight: 700;
+}</string>
+        </property>
+        <property name="text">
+         <string>✓</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="resultMainLabel">
+        <property name="geometry">
+         <rect>
+          <x>215</x>
+          <y>90</y>
+          <width>440</width>
+          <height>121</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>36</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#resultMainLabel {
+    background: transparent;
+    color: #0c57cf;
+    border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>FinFET</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="resultSubLabel">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>180</y>
+          <width>270</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+          <pointsize>14</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel#resultSubLabel {
+    background: transparent;
+    color: #0c57cf;
+    border: none;
+}</string>
+        </property>
+        <property name="text">
+         <string>Technology Class</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="closePushbutton">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>700</y>
+         <width>281</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#closePushbutton {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #0c78ff,
+        stop:1 #0059d9
+    );
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+QPushButton#closePushbutton:hover {
+    background: qlineargradient(
+        x1:1, y1:1, x2:0, y2:1,
+        stop:0 #2587ff,
+        stop:1 #0b67e7
+    );
+}</string>
+       </property>
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="detailsPushbutton">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>700</y>
+         <width>281</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#detailsPushbutton {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #0059d9,
+        stop:1 #0c78ff
+    );
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+QPushButton#detailsPushbutton:hover {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #2587ff,
+        stop:1 #0b67e7
+    );
+}</string>
+       </property>
+       <property name="text">
+        <string>Details</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

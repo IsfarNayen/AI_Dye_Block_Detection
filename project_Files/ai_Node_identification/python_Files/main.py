@@ -1,17 +1,18 @@
-import sys, os, shutil
+import sys
+import os
+import shutil
 
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import Qt, QPoint
 from PyQt5.QtGui import QPixmap, QIcon
 
-from ..UI.skeleton_UI_files.main_ui import Ui_MainWindow
+from ..UI.skeleton_UI_files.node_Analysis_drag_drop import Ui_MainWindow
 from .drag_and_drop_event import DragDropFrame
-from .segmented_details_main import MainApp as SegmentedDetailsWindow
+from .node_Analysis_details_main import MainApp as nodeDetailswindow
 from .worker_class_for_heavy_processing import PredictionWorker
 from .loading_screen import LoadingScreen
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
-
 
 
 class MainApp(QtWidgets.QMainWindow):
@@ -21,20 +22,11 @@ class MainApp(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.setFixedSize(self.size())
 
-        self.worker = None
         self.result_window = None
+        self.worker = None
         self.loading_dialog = None
 
-        self.icon_set(
-            self.ui.uploadIconbutton,
-            os.path.join(base_dir, "asset", "upload_icon.png"),
-            100, 100
-        )
-        self.icon_set(
-            self.ui.logoPushbutton,
-            os.path.join(base_dir, "asset", "app_logo.png"),
-            25, 25
-        )
+        self.icon_set(self.ui.logoPushbutton, os.path.join(base_dir, "..", "..", "..", "drag_and_drop_node_icon.png"), 10, 10)
 
         self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowMinimizeButtonHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -48,45 +40,36 @@ class MainApp(QtWidgets.QMainWindow):
 
         self.setup_drag_drop_area()
 
-
-
     def setup_drag_drop_area(self):
         old_frame = self.ui.mainBoxcontainer
         parent = old_frame.parent()
         geometry = old_frame.geometry()
 
-        # Save child widgets from old frame
         children = old_frame.findChildren(
             QtWidgets.QWidget,
             options=QtCore.Qt.FindDirectChildrenOnly
         )
 
-        # Create new drag-drop frame
         new_frame = DragDropFrame(parent)
         new_frame.setGeometry(geometry)
         new_frame.setObjectName("mainBoxcontainer")
         new_frame.setStyleSheet(old_frame.styleSheet())
+        new_frame.fileDropped.connect(self.handle_dropped_image)
         new_frame.show()
 
-        # Move old children into new frame
         for child in children:
             child.setParent(new_frame)
             child.show()
 
-        # Usually geometry is preserved, but raise important widgets
         if hasattr(self.ui, "uploadImagebutton"):
             self.ui.uploadImagebutton.raise_()
         if hasattr(self.ui, "uploadIconbutton"):
             self.ui.uploadIconbutton.raise_()
 
-        # Hide old frame
         old_frame.hide()
         old_frame.deleteLater()
 
-        # Replace reference
         self.ui.mainBoxcontainer = new_frame
-        self.ui.mainBoxcontainer.fileDropped.connect(self.handle_dropped_image)
-
 
     def open_file_dialog(self):
         file_path, _ = QtWidgets.QFileDialog.getOpenFileName(
@@ -98,133 +81,136 @@ class MainApp(QtWidgets.QMainWindow):
         if file_path:
             self.process_and_show_result(file_path)
 
-
     def handle_dropped_image(self, file_path):
         self.process_and_show_result(file_path)
 
-
     def process_and_show_result(self, file_path):
-        # Prevent multiple jobs at the same time
-        if self.worker is not None and self.worker.isRunning():
-            return
-
         self.loading_dialog = LoadingScreen(self)
         self.loading_dialog.show()
 
         self.worker = PredictionWorker(file_path)
         self.worker.finished.connect(self.on_processing_finished)
         self.worker.error.connect(self.on_processing_error)
-        self.worker.finished.connect(self.cleanup_worker)
-        self.worker.error.connect(self.cleanup_worker)
         self.worker.start()
-
 
     def on_processing_finished(self, result, file_path):
         if self.loading_dialog is not None:
             self.loading_dialog.close()
             self.loading_dialog = None
 
-        # Save original image copy safely
-        database_dir = os.path.join(".", "database")
-        try:
-            if os.path.exists(database_dir) and not os.path.isdir(database_dir):
-                raise NotADirectoryError(f"'database' exists but is not a folder: {database_dir}")
-            os.makedirs(database_dir, exist_ok=True)
-            shutil.copy(file_path, database_dir)
-        except Exception:
-            pass
+        predicted_image_path = result.get("image_path")
+        node_name = result.get("node_name")
+        confidence = result.get("confidence")
 
-        area_df = result["area_df"]
-        area_summary = result["area_summary"]
-        save_paths = result["save_paths"]
+        self.result_window = nodeDetailswindow()
 
-        details_df = area_df[["class_name", "ratio_percent", "class_color_hex", "class_color_rgb"]].copy()
+        # Put original image
+        if predicted_image_path and hasattr(self.result_window, "set_image_in_frame") and hasattr(self.result_window.ui, "identifiedImageframe"):
+            self.result_window.set_image_in_frame(
+                self.result_window.ui.identifiedImageframe,
+                predicted_image_path
+            )
 
-        mask = details_df["ratio_percent"] != 0
-        details_df = details_df[mask].copy()
+        # Update result labels if they exist in the details UI
+        if hasattr(self.result_window.ui, "resultMainLabel"):
+            self.result_window.ui.resultMainLabel.setText(
+                node_name if node_name else "No Detection"
+            )
 
-        overlay_path = save_paths.get("overlay_path", "")
-        overlay_path = os.path.join(base_dir, overlay_path)
-        original_path = file_path
+        if hasattr(self.result_window.ui, "possibleClassLabel"):
+            if confidence is not None:
+                self.result_window.ui.possibleClassLabel.setText(
+                    f"Confidence: {confidence:.2%}"
+                )
+            else:
+                self.result_window.ui.possibleClassLabel.setText("Confidence: N/A")
 
-        self.result_window = SegmentedDetailsWindow()
-        self.result_window.set_result_data(
-            original_image_path=original_path,
-            segmented_image_path=overlay_path,
-            details_df=details_df,
-            # area_summary=area_summary
-        )
+        if hasattr(self.result_window.ui, "analysisLabel"):
+            self.result_window.ui.analysisLabel.setText("Classified Node Type")
+
+        if hasattr(self.result_window.ui, "resultSubLabel"):
+            self.result_window.ui.resultSubLabel.setText("Technology Class")
+
         self.result_window.show()
-
 
     def on_processing_error(self, error_message):
         if self.loading_dialog is not None:
             self.loading_dialog.close()
-            self.loading_dialog = None
 
         QtWidgets.QMessageBox.critical(
             self,
             "Processing Error",
-            str(error_message)
+            error_message
         )
 
-
-    def cleanup_worker(self, *args):
-        self.worker = None
-
-
     def icon_set(self, widget, icon_path, w, h):
+        """
+        Set an icon or image on a widget.
+
+        Parameters:
+            widget: The target widget. Supported types:
+                    - QPushButton: sets button icon
+                    - QLabel: sets scaled pixmap
+            icon_path (str): Path to the icon/image file
+            w (int): Desired width
+            h (int): Desired height
+        """
+        # If the widget is a button, set its icon directly
         if isinstance(widget, QtWidgets.QPushButton):
-            widget.setIcon(QIcon(icon_path))
+            icon = QIcon(icon_path)
+
+            if icon.isNull():
+                print("Icon not found:", icon_path)
+                return
+
+            widget.setStyleSheet("background: transparent; border: none;")
+            widget.setAttribute(Qt.WA_TranslucentBackground)
+            widget.setIcon(icon)
             widget.setIconSize(QtCore.QSize(w, h))
+
+        # If the widget is a label, load and scale the image as a pixmap
         elif isinstance(widget, QtWidgets.QLabel):
             pixmap = QPixmap(icon_path)
+
+            # Check if the image file was loaded successfully
             if pixmap.isNull():
                 print("Image not found:", icon_path)
                 return
+
+            # Scale image while preserving aspect ratio and smooth quality
             pixmap = pixmap.scaled(
-                w, h,
+                w,
+                h,
                 QtCore.Qt.KeepAspectRatio,
                 QtCore.Qt.SmoothTransformation
             )
-            widget.setPixmap(pixmap)
 
+            widget.setStyleSheet("background: transparent; border: none;")
+            widget.setAttribute(Qt.WA_TranslucentBackground)
+            widget.setAutoFillBackground(False)
+            widget.setAlignment(Qt.AlignCenter)
+            widget.setPixmap(pixmap)
+            
+            
+            
+            
 
     def close_win(self):
-        # Close worker safely if it is still running
         try:
-            if self.worker is not None and self.worker.isRunning():
-                self.worker.quit()
-                self.worker.wait(2000)
-        except Exception:
-            pass
-
-        # Close loading dialog if it exists
-        try:
-            if self.loading_dialog is not None:
-                self.loading_dialog.close()
-        except Exception:
-            pass
-
-        # Try removing outputs folder safely
-        try:
-            project_root = os.path.abspath(os.path.join(base_dir, "..", "..", ".."))
-            output_dir = os.path.join(project_root, "models", "ai_Dye_segmentation", "outputs")
+            output_dir = os.path.join(base_dir, "..", "..", "..", "Node_Pipeline", "predicted_images")
+            output_dir = os.path.abspath(output_dir)
             if os.path.exists(output_dir):
                 shutil.rmtree(output_dir)
         except Exception:
             pass
 
-        # Close result window if it exists
         try:
-            if hasattr(self, "result_window") and self.result_window is not None:
+            if self.result_window is not None:
                 self.result_window.close()
         except Exception:
             pass
 
-        # Finally close main window
         self.close()
-
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -232,17 +218,14 @@ class MainApp(QtWidgets.QMainWindow):
             self._drag_position = event.globalPos() - self.frameGeometry().topLeft()
             event.accept()
 
-
     def mouseMoveEvent(self, event):
         if self._drag_active and event.buttons() == Qt.LeftButton:
             self.move(event.globalPos() - self._drag_position)
             event.accept()
 
-
     def mouseReleaseEvent(self, event):
         self._drag_active = False
         event.accept()
-
 
 
 if __name__ == "__main__":

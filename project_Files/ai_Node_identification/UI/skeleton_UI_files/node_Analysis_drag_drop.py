@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_ui.ui'
+# Form implementation generated from reading ui file '.\project_Files\ai_Node_identification\UI\dot_UI_files\node_Analysis_drag_drop.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -15,33 +15,45 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(900, 491)
-        MainWindow.setStyleSheet("background-color: #e9e6f2;")
+        MainWindow.setStyleSheet("QMainWindow {\n"
+"    background: transparent;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("background: transparent;")
+        self.centralwidget.setStyleSheet("QWidget#centralwidget {\n"
+"    background: transparent;\n"
+"}")
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
         self.mainFrame = QtWidgets.QFrame(self.centralwidget)
-        self.mainFrame.setStyleSheet("background: qlineargradient(\n"
+        self.mainFrame.setStyleSheet("QFrame#mainFrame {\n"
+"    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:1,\n"
-"        stop:0 #ece9f7,\n"
-"        stop:1 #ddd8ee\n"
+"        stop:0 #F4F7FD,\n"
+"        stop:0.55 #EEF2FB,\n"
+"        stop:1 #E6ECF8\n"
 "    );\n"
-"border-radius: 24px;")
+"    border: 1px solid #C9D6EF;\n"
+"    border-radius: 28px;\n"
+"}")
         self.mainFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.mainFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mainFrame.setObjectName("mainFrame")
         self.HeaderFrame = QtWidgets.QFrame(self.mainFrame)
         self.HeaderFrame.setGeometry(QtCore.QRect(0, 0, 881, 31))
-        self.HeaderFrame.setStyleSheet("background: qlineargradient(\n"
+        self.HeaderFrame.setStyleSheet("QFrame#HeaderFrame {\n"
+"    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #8f97c8,\n"
-"        stop:1 #b8bbe3\n"
+"        stop:0 #D9E4F7,\n"
+"        stop:0.55 #C7D8F2,\n"
+"        stop:1 #B8CBEA\n"
 "    );\n"
-"border-top-left-radius: 22px;\n"
-"border-top-right-radius: 22px;\n"
-"border-bottom-left-radius: 0px;\n"
-"border-bottom-right-radius: 0px;")
+"    border-top-left-radius: 28px;\n"
+"    border-top-right-radius: 28px;\n"
+"    border-bottom-left-radius: 0px;\n"
+"    border-bottom-right-radius: 0px;\n"
+"    border: none;\n"
+"}")
         self.HeaderFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.HeaderFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.HeaderFrame.setObjectName("HeaderFrame")
@@ -49,114 +61,126 @@ class Ui_MainWindow(object):
         self.softwareNameLabel.setGeometry(QtCore.QRect(66, 3, 201, 21))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         font.setBold(True)
-        font.setWeight(62)
+        font.setWeight(87)
         self.softwareNameLabel.setFont(font)
-        self.softwareNameLabel.setStyleSheet("    background: transparent;\n"
-"    color: white;\n"
-"    font-size: 16px;\n"
-"    font-weight: 500;\n"
-"    border: none;")
+        self.softwareNameLabel.setStyleSheet("QLabel#softwareNameLabel {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #6B97DA;\n"
+"    font-size: 18px;\n"
+"    font-weight: 700;\n"
+"}")
         self.softwareNameLabel.setObjectName("softwareNameLabel")
         self.closeButton = QtWidgets.QPushButton(self.HeaderFrame)
-        self.closeButton.setGeometry(QtCore.QRect(814, 0, 51, 31))
+        self.closeButton.setGeometry(QtCore.QRect(810, 1, 55, 28))
         self.closeButton.setStyleSheet("QPushButton#closeButton {\n"
-"    background-color: rgba(255, 0, 0, 0.50);\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #F26A61,\n"
+"        stop:1 #E94B43\n"
+"    );\n"
 "    color: white;\n"
-"    border: 1px solid rgba(255, 255, 255, 0.35);\n"
-"    border-radius: 8px;\n"
-"    font-size: 16px;\n"
+"    border: none;\n"
+"    border-radius: 14px;\n"
+"    font-size: 18px;\n"
+"    font-weight: 700;\n"
 "}\n"
 "\n"
 "QPushButton#closeButton:hover {\n"
-"    background-color: rgba(255, 0, 0, 0.70);\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:0,\n"
+"        stop:0 #F57A72,\n"
+"        stop:1 #ED5A52\n"
+"    );\n"
 "}\n"
 "\n"
 "QPushButton#closeButton:pressed {\n"
-"    background-color: rgba(255, 0, 0, 1);\n"
+"    background: #D9443D;\n"
 "}")
         self.closeButton.setObjectName("closeButton")
         self.minimizeButton = QtWidgets.QPushButton(self.HeaderFrame)
-        self.minimizeButton.setGeometry(QtCore.QRect(760, 0, 51, 31))
-        self.minimizeButton.setStyleSheet("QPushButton#minimizeButton,\n"
-"QPushButton#pushButton {\n"
-"    background-color: rgba(255, 255, 255, 0.10);\n"
-"    color: white;\n"
+        self.minimizeButton.setGeometry(QtCore.QRect(750, 1, 55, 28))
+        self.minimizeButton.setStyleSheet("QPushButton#minimizeButton {\n"
+"    background: rgba(255, 255, 255, 0.20);\n"
+"    color: #2D63B3;\n"
 "    border: 1px solid rgba(255, 255, 255, 0.35);\n"
-"    border-radius: 8px;\n"
-"    font-size: 16px;\n"
+"    border-radius: 14px;\n"
+"    font-size: 18px;\n"
+"    font-weight: 600;\n"
 "}\n"
 "\n"
-"QPushButton#minimizeButton:hover,\n"
-"QPushButton#pushButton:hover {\n"
-"    background-color: rgba(255, 255, 255, 0.20);\n"
+"QPushButton#minimizeButton:hover {\n"
+"    background: rgba(255, 255, 255, 0.34);\n"
 "}\n"
 "\n"
-"QPushButton#minimizeButton:pressed,\n"
-"QPushButton#pushButton:pressed {\n"
-"    background-color: rgba(255, 255, 255, 0.28);\n"
+"QPushButton#minimizeButton:pressed {\n"
+"    background: rgba(255, 255, 255, 0.44);\n"
 "}")
         self.minimizeButton.setObjectName("minimizeButton")
         self.logoPushbutton = QtWidgets.QPushButton(self.HeaderFrame)
         self.logoPushbutton.setGeometry(QtCore.QRect(20, 0, 41, 31))
-        self.logoPushbutton.setStyleSheet("    background: transparent;\n"
-"    color: white;\n"
-"    font-size: 18px;\n"
-"    font-weight: 600;\n"
-"    border: none;")
+        self.logoPushbutton.setStyleSheet("QPushButton#logoPushbutton {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #12786D;\n"
+"    font-size: 20px;\n"
+"    font-weight: 700;\n"
+"    padding-left: 4px;\n"
+"    text-align: left;\n"
+"}")
         self.logoPushbutton.setText("")
         self.logoPushbutton.setObjectName("logoPushbutton")
         self.bodyFrame = QtWidgets.QFrame(self.mainFrame)
         self.bodyFrame.setGeometry(QtCore.QRect(0, 40, 881, 421))
-        self.bodyFrame.setStyleSheet("    background-color: rgba(255, 255, 255, 0.18);\n"
-"    border-bottom-left-radius: 22px;\n"
-"    border-bottom-right-radius: 22px;\n"
-"    border-top-left-radius: 0px;\n"
-"    border-top-right-radius: 0px;")
+        self.bodyFrame.setStyleSheet("QFrame#bodyFrame {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"}")
         self.bodyFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.bodyFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.bodyFrame.setObjectName("bodyFrame")
         self.mainBoxcontainer = QtWidgets.QFrame(self.bodyFrame)
         self.mainBoxcontainer.setGeometry(QtCore.QRect(10, 10, 861, 371))
-        self.mainBoxcontainer.setStyleSheet("    background: qlineargradient(\n"
-"        x1:0, y1:0, x2:0, y2:1,\n"
-"        stop:0 rgba(255,255,255,0.34),\n"
-"        stop:1 rgba(255,255,255,0.20)\n"
-"    );\n"
-"    border: 1px dashed #d3cede;\n"
-"    border-radius: 22px;")
+        self.mainBoxcontainer.setStyleSheet("QFrame#mainBoxcontainer {\n"
+"    background: rgba(210, 223, 246, 0.28);\n"
+"    border: 0px solid #D3DEF2;\n"
+"    border-radius: 18px;\n"
+"}")
         self.mainBoxcontainer.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.mainBoxcontainer.setFrameShadow(QtWidgets.QFrame.Raised)
         self.mainBoxcontainer.setObjectName("mainBoxcontainer")
         self.dragAnddropicon = QtWidgets.QLabel(self.mainBoxcontainer)
-        self.dragAnddropicon.setGeometry(QtCore.QRect(90, 150, 681, 71))
+        self.dragAnddropicon.setGeometry(QtCore.QRect(20, 150, 811, 71))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         font.setBold(False)
         font.setWeight(50)
         self.dragAnddropicon.setFont(font)
-        self.dragAnddropicon.setStyleSheet("    background: transparent;\n"
-"    color: #8f93b7;\n"
-"    font-size: 54px;\n"
+        self.dragAnddropicon.setStyleSheet("QLabel#dragAnddropicon {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #6B97DA;\n"
+"    font-size: 40px;\n"
 "    font-weight: 400;\n"
-"    border: none;")
+"}")
         self.dragAnddropicon.setAlignment(QtCore.Qt.AlignCenter)
         self.dragAnddropicon.setObjectName("dragAnddropicon")
         self.uploadImagebutton = QtWidgets.QPushButton(self.mainBoxcontainer)
         self.uploadImagebutton.setGeometry(QtCore.QRect(320, 240, 181, 41))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(62)
         self.uploadImagebutton.setFont(font)
         self.uploadImagebutton.setStyleSheet("QPushButton#uploadImagebutton {\n"
 "    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #8f9ad8,\n"
-"        stop:1 #b4b8e9\n"
+"        stop:0 #6FA4EE,\n"
+"        stop:1 #89C0F3\n"
 "    );\n"
 "    color: white;\n"
 "    border: none;\n"
@@ -169,39 +193,32 @@ class Ui_MainWindow(object):
 "QPushButton#uploadImagebutton:hover {\n"
 "    background: qlineargradient(\n"
 "        x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #8692d2,\n"
-"        stop:1 #aeb3e4\n"
+"        stop:0 #6399E8,\n"
+"        stop:1 #7BB7EE\n"
 "    );\n"
 "}\n"
 "\n"
 "QPushButton#uploadImagebutton:pressed {\n"
-"    background: qlineargradient(\n"
-"        x1:0, y1:0, x2:1, y2:0,\n"
-"        stop:0 #7986c8,\n"
-"        stop:1 #a0a8dc\n"
-"    );\n"
+"    background: #5D93DE;\n"
 "}")
         self.uploadImagebutton.setObjectName("uploadImagebutton")
-        self.uploadIconbutton = QtWidgets.QPushButton(self.mainBoxcontainer)
-        self.uploadIconbutton.setGeometry(QtCore.QRect(350, 70, 141, 81))
-        self.uploadIconbutton.setStyleSheet("    background: transparent;\n"
-"    color: white;\n"
-"    font-size: 18px;\n"
-"    font-weight: 600;\n"
-"    border: none;")
-        self.uploadIconbutton.setText("")
-        self.uploadIconbutton.setObjectName("uploadIconbutton")
-        self.dragAnddropicon.raise_()
-        self.uploadIconbutton.raise_()
-        self.uploadImagebutton.raise_()
+        self.uploadImagelabel = QtWidgets.QLabel(self.mainBoxcontainer)
+        self.uploadImagelabel.setGeometry(QtCore.QRect(10, 0, 841, 181))
+        self.uploadImagelabel.setStyleSheet("QLabel#uploadImagelabel { background: transparent; border: 0px solid rgba(255,255,255,0.75); border-radius: 26px; }")
+        self.uploadImagelabel.setText("")
+        self.uploadImagelabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.uploadImagelabel.setObjectName("uploadImagelabel")
         self.frame = QtWidgets.QFrame(self.bodyFrame)
         self.frame.setGeometry(QtCore.QRect(10, 10, 861, 401))
-        self.frame.setStyleSheet("background-color: rgba(255, 255, 255, 0.15);\n"
-"border-top: 0px solid rgba(210,205,225,0.8);\n"
-"border-bottom-left-radius: 20px;\n"
-"border-bottom-right-radius: 20px;\n"
-"border-top-left-radius: 20px;\n"
-"border-top-right-radius: 20px;")
+        self.frame.setStyleSheet("QFrame#frame {\n"
+"    background: qlineargradient(\n"
+"        x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #F7F9FE,\n"
+"        stop:1 #EEF3FC\n"
+"    );\n"
+"    border: 2px dashed #7AA4E8;\n"
+"    border-radius: 26px;\n"
+"}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -209,17 +226,19 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(30, 370, 811, 21))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         font.setBold(False)
         font.setWeight(50)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("    background: transparent;\n"
-"    color: #7c7d92;\n"
+"    color: #4A7FD2;\n"
 "    font-size: 13px;\n"
 "    font-weight: 400;\n"
 "    border: none;\n"
 "    padding-left: 12px;\n"
-"    padding-right: 12px;")
+"    padding-right: 12px;\n"
+"\n"
+"")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.frame.raise_()
@@ -233,12 +252,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.softwareNameLabel.setText(_translate("MainWindow", "Teardown AI Software"))
+        self.softwareNameLabel.setText(_translate("MainWindow", "Node Analysis"))
         self.closeButton.setText(_translate("MainWindow", "X"))
         self.minimizeButton.setText(_translate("MainWindow", "-"))
-        self.dragAnddropicon.setText(_translate("MainWindow", "Drag & Drop IC Image Here"))
+        self.dragAnddropicon.setText(_translate("MainWindow", "Drag & Drop SEM Cross Section Image Here"))
         self.uploadImagebutton.setText(_translate("MainWindow", "Upload an image"))
-        self.label_3.setText(_translate("MainWindow", "Upload an image of an IC and the software will segment different blocks from the teardown IC for analysis"))
+        self.label_3.setText(_translate("MainWindow", "Upload and image for Node Identification and Get the Node result"))
 
 
 if __name__ == "__main__":

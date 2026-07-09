@@ -428,6 +428,7 @@ class ChipSegmentationPipeline:
                 device=self.device
             )
             self.models.append(model)
+            print(f"model load successfully!!")
 
     def predict_image(
         self,
@@ -443,7 +444,7 @@ class ChipSegmentationPipeline:
         Main full pipeline for one image.
         Returns structured dictionary for GUI/backend usage.
         """
-
+        print("Backend starts!!")
         if not os.path.exists(image_path):
             raise FileNotFoundError(f"Image not found: {image_path}")
 
