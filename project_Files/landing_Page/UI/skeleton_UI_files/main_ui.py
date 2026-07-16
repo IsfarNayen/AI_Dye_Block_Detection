@@ -181,11 +181,11 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "AI Software"))
-        self.softwareNameLabel.setText(_translate("MainWindow", "AI Software"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "IC Analysis AI Suite"))
+        self.softwareNameLabel.setText(_translate("MainWindow", "IC Analysis AI Suite"))
         self.minimizeButton.setText(_translate("MainWindow", "−"))
         self.closeButton.setText(_translate("MainWindow", "×"))
-        self.welcomeLabel.setText(_translate("MainWindow", "Welcome to AI Software"))
+        self.welcomeLabel.setText(_translate("MainWindow", "Welcome to IC Analysis AI Suite"))
         self.subtitleLabel.setText(_translate("MainWindow", "Advanced IC analysis powered by AI.\n"
 "Choose an analysis mode to get started."))
         self.blockSegtitlelabel.setText(_translate("MainWindow", "Block Segmentation"))

@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.HeaderFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.HeaderFrame.setObjectName("HeaderFrame")
         self.softwareNameLabel = QtWidgets.QLabel(self.HeaderFrame)
-        self.softwareNameLabel.setGeometry(QtCore.QRect(66, 3, 201, 21))
+        self.softwareNameLabel.setGeometry(QtCore.QRect(30, 3, 201, 21))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(1)

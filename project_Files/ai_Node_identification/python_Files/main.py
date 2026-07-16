@@ -98,6 +98,8 @@ class MainApp(QtWidgets.QMainWindow):
             self.loading_dialog.close()
             self.loading_dialog = None
 
+
+        original_image_path = file_path
         predicted_image_path = result.get("image_path")
         node_name = result.get("node_name")
         confidence = result.get("confidence")
@@ -105,10 +107,10 @@ class MainApp(QtWidgets.QMainWindow):
         self.result_window = nodeDetailswindow()
 
         # Put original image
-        if predicted_image_path and hasattr(self.result_window, "set_image_in_frame") and hasattr(self.result_window.ui, "identifiedImageframe"):
+        if original_image_path and hasattr(self.result_window, "set_image_in_frame") and hasattr(self.result_window.ui, "identifiedImageframe"):
             self.result_window.set_image_in_frame(
                 self.result_window.ui.identifiedImageframe,
-                predicted_image_path
+                original_image_path
             )
 
         # Update result labels if they exist in the details UI
